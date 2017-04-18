@@ -23,7 +23,8 @@ The powers of 3, reduced modulo 7, are 3, 2, 6, 4, 5, 1, so we does get everythi
 Note that after g<sup>p-1</sup> the power starts all over <br />
 Fermat's little theorem  g<sup>p-1</sup> ≡ 1 mod p , g<sup>p</sup> = g<sup>p-1</sup> . g<sup>1</sup> <br />
 
-a is called __discrete logarithm__ of of A with respect to __primitive root__ g.<br />
+a is called __discrete logarithm__ of of A with respect to __primitive root__ g and computing for __a__ is comoutationally harder.<br />
+However given g,a,p one can find __A__. See [link](https://en.wikipedia.org/wiki/Modular_exponentiation) <br />
 
 
 TODO:
