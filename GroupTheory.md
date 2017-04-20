@@ -70,6 +70,23 @@ f(a o b) = f(a) o' f(b) [o and o' can be same) f(x * y) = f(x) * f(y)<br />
 
 
 ### Isomorphism
+(G, o) and (G, o') be group and f: G->G' mapping
+1. f should be one to one mapping 
+2. f is onto mapping i.e. no elelmenbt in G' is not left without mapping from G.
+3. f is homomorphism i.e.<br />
+   f(a o b) = f(a) o' f(b)<br />
+
+Example:<br />
+G= (I, +)<br />
+G= (2Z, +) group of even number<br />
+f(x) =2x for x belongs to G<br />
+Prove that f(x) is isomorphism<br />
+
+1. All number in G will have a 2x maping in G'
+2. Any even number will have corresponding element in G such that 2x is even.
+3. take 2 elements x1, x2<br />
+
+f(x1+x2) =2(x1+x2) = 2x1 + 2x2 = f(x1) + f(x2) hence f is homomorphism<br />
 
 # Quotient Group
 
