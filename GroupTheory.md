@@ -88,5 +88,17 @@ Prove that f(x) is isomorphism<br />
 
 f(x1+x2) =2(x1+x2) = 2x1 + 2x2 = f(x1) + f(x2) hence f is homomorphism<br />
 
-# Quotient Group
+### Quotient Group
+
+Take a group G under multiplication and a normal sub-group H.
+for all a belongs to G , it can be shown shown that 
+
+{a<sub>1</sub>H, a<sub>2</sub>H ....} is also a group , note that {a<sub>1</sub>H} is a set itself
+
+## Ring
+
+### Ideal
+
+### Quotient Ring
+
 
