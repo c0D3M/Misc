@@ -96,9 +96,29 @@ for all a belongs to G , it can be shown shown that
 {a<sub>1</sub>H, a<sub>2</sub>H ....} is also a group , note that {a<sub>1</sub>H} is a set itself
 
 ## Ring
+A Ring in an abelian group with second binary operation that is<br />
+- Associativity 
+- Distributive over alebian group operation
+- Has Identity element
+Example , Group of Integer , abelian group operation is addition and second operation is multiplication
+**(I, +, .)**<br />
+We knew that **(I, +)** is abelian group.<br />
+- . is associative for Integers i.e. a.(b.c) = (a.b).c
+- a.(b+c) = (ab) + (bc)
+- has identity element 1 such that a.1 = a
+This ring is also **commutative ring** since a.b = b .a<br />
+Example of non-commutative ring can be ring of square matrices.<br />
 
 ### Ideal
 
 ### Quotient Ring
 
 
+## Field
+A field is a ring which also contain additional property of **multiplicative inverse**.<br />
+Set of Real number is a field (it is also an abelian group and ring).<br />
+For example if we take **4/3** their exist and inverse which is **3/4**.<br />
+
+Complex number **a+bi** also form a field.<br />
+Addition and multiplication can be done in such a way that all group and ring axiom holds true.<br />
+Multiplicative inverse of a+bi = a/(a<sup>2</sup> + b<sup>2</sup>) - bi / (a<sup>2</sup> + b<sup>2</sup>)<br />
