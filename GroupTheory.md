@@ -67,8 +67,18 @@ if H is normal subgroup , left and right coset conincide.
 F: G -> G'<br />
 f(a o b) = f(a) o' f(b) [o and o' can be same) f(x * y) = f(x) * f(y)<br />
 
-
-
+### Kernel of Homomorphism
+k(f) contains all elelennts of G such that their f mapping results e' (indentity elements of G').<br />
+Example:
+ Let (I, +) and another G{1, -1, i, -i}  foruth root of unity <br/>
+ f: I -> G  by f(n) = i<sup>n</sup> is homomorphic<br/>
+ f(x+y) = i<sup> x+y</sup> = i<sup> x </sup> i<sup>y</sup> = f(x) . f(y) <br/>
+ 
+ Kernel of f such that f(x) = 1 (which is identity elelment of G}<br/>
+ all multiple of 4 will form this group because i<sup>4</sup> = 1<br/>
+ 
+ hence k(f) = {0, +-4, +- 8, +- 12....} = **4Z** <br/>
+ 
 ### Isomorphism
 (G, o) and (G, o') be group and f: G->G' mapping
 1. f should be one to one mapping 
@@ -116,7 +126,10 @@ r . x = I , r belongs to R and x belongs to I
 Example: subset of even integer is a ideal, because above property holds true.
 
 ### Quotient Ring
-
+Let I be an ideal of ring R , then we cna definie
+(a+I ) + (b+I) = (a+b)+ I  [ and b belongs to R)
+(a+I) . (b+I) = (ab) +I (since a.I =I and b.I =I)
+R/I is called quotient ring or reside class or equivalence class or set of coset. <br/>
 
 ## Field
 A field is a ring which also contain additional property of **multiplicative inverse**.<br />
