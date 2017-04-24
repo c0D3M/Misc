@@ -110,6 +110,10 @@ This ring is also **commutative ring** since a.b = b .a<br />
 Example of non-commutative ring can be ring of square matrices.<br />
 
 ### Ideal
+an idela is a subset of ring such that following property are satisfied
+a + b belongs to I , where a and b belongs to I
+r . x = I , r belongs to R and x belongs to I
+Example: subset of even integer is a ideal, because above property holds true.
 
 ### Quotient Ring
 
