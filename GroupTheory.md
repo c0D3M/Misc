@@ -139,3 +139,7 @@ For example if we take **4/3** their exist and inverse which is **3/4**.<br />
 Complex number **a+bi** also form a field.<br />
 Addition and multiplication can be done in such a way that all group and ring axiom holds true.<br />
 Multiplicative inverse of a+bi = a/(a<sup>2</sup> + b<sup>2</sup>) - bi / (a<sup>2</sup> + b<sup>2</sup>)<br />
+
+
+## Reference
+http://www.di-mgt.com.au/multiplicative-group-mod-p.html
