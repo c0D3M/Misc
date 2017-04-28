@@ -1,3 +1,17 @@
+## Discrete Logarithm Problem
+Fix a group G and an element *g* from that group.<br />
+Any element *h* from **subgroup of G**<br />
+Fin *m* such that *h = g<sup>m</sup>* <br />
+ *m= log <sub>g</sub> h*<br />
+ Complexity of the solution depends on chosen **group**.<br />
+ For some group its easy, example **Z/mZ group under binaryoperation addition** (Z/mZ is the set of integers mod m )<br />
+ **Z<sub>p</sub><sup>*</sup> group under multiplication** problem is tough to solve for some large prime and used in DH .<br />
+ Some places **Z<sub>p</sub><sup>*</sup>** is also written as **F<sub>p</sub><sup>*</sup>** <br/>
+ ### Elliptic Curve Discrete Logarithm Problem
+ is the discrete logarithm problem for the group of points on an elliptic curve over a finite field.
+ Best known algroithm to solve it is exponential as compared to sub-exponential algorithm for DLP above.
+ 
+
 ## Diffie-Hellman 
 A method to securely exchange cyptographic keys over a public network.
 
