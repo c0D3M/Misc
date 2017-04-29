@@ -7,12 +7,6 @@ Fin *m* such that *h = g<sup>m</sup>* <br />
  For some group its easy, example **Z/mZ group under binaryoperation addition** (Z/mZ is the set of integers mod m )<br />
  **Z<sub>p</sub><sup>*</sup> group under multiplication** problem is tough to solve for some large prime and used in DH .<br />
  Some places **Z<sub>p</sub><sup>*</sup>** is also written as **F<sub>p</sub><sup>*</sup>** <br/>
- ### Elliptic Curve Discrete Logarithm Problem
- is the discrete logarithm problem for the group of points on an elliptic curve over a finite field.
- Best known algroithm to solve it is exponential as compared to sub-exponential algorithm for DLP above.  
- http://www.math.brown.edu/~jhs/Presentations/WyomingEllipticCurve.pdf
- https://blog.cloudflare.com/ecdsa-the-digital-signature-algorithm-of-a-better-internet/
- 
 
 ## Diffie-Hellman 
 A method to securely exchange cyptographic keys over a public network.
@@ -42,17 +36,8 @@ Fermat's little theorem  g<sup>p-1</sup> ≡ 1 mod p , g<sup>p</sup> = g<sup>p-1
 a is called __discrete logarithm__ of of A with respect to __primitive root__ g and computing for __a__ is comoutationally harder.<br />
 However given g,a,p one can find __A__. See [link](https://en.wikipedia.org/wiki/Modular_exponentiation) <br />
 
+## ECDHE
 
-TODO:
-- Pohlig Hellman
-- index calculus
-- DHE
-- EC-DH
-- Chinese Remainder Theorem<br />
-X divide by 3 yield 2 as remainder.
-X divide by 5 yield 3 as remainder.
-X divide by 7 yield 2 as remainder.
-What is X ? 
 ## RSA
 - Take two prime number p and q
 - multiply it to get n = pq
@@ -135,6 +120,12 @@ Kind of keys            | none | symmetric | asymmetric
 DSA vs RSA vs ECDSA
 
 DSA & ECDSA both reply on a random number generator , so if random number generator is poor, private key can be leaked.
+
+ ### Elliptic Curve Discrete Logarithm Problem
+ is the discrete logarithm problem for the group of points on an elliptic curve over a finite field.  
+ Best known algroithm to solve it is exponential as compared to sub-exponential algorithm for DLP above.  
+ http://www.math.brown.edu/~jhs/Presentations/WyomingEllipticCurve.pdf  
+ https://blog.cloudflare.com/ecdsa-the-digital-signature-algorithm-of-a-better-internet/
 
 ## Elliptic Curve Cryptography
 high security with short, fast keys and their isn't trapdoor yet.
