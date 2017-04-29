@@ -9,7 +9,9 @@ Fin *m* such that *h = g<sup>m</sup>* <br />
  Some places **Z<sub>p</sub><sup>*</sup>** is also written as **F<sub>p</sub><sup>*</sup>** <br/>
  ### Elliptic Curve Discrete Logarithm Problem
  is the discrete logarithm problem for the group of points on an elliptic curve over a finite field.
- Best known algroithm to solve it is exponential as compared to sub-exponential algorithm for DLP above.
+ Best known algroithm to solve it is exponential as compared to sub-exponential algorithm for DLP above.  
+ http://www.math.brown.edu/~jhs/Presentations/WyomingEllipticCurve.pdf
+ https://blog.cloudflare.com/ecdsa-the-digital-signature-algorithm-of-a-better-internet/
  
 
 ## Diffie-Hellman 
@@ -69,7 +71,29 @@ CBC-MAC are based on block cipher.
 New fasters onces like UMAC & VMAC uses universal hashing.created by know sender
 
 MAC vs SHA256 : Key difference is cryptographic hash function doesnt use any shared key to derive authentication code hence SHA cannot guarantee authenticty of a message.
-Both can however guarantee integrity of message.
+Both can however guarantee integrity of message.  
+
+### Encrypt-then-MAC
+First we encrypt the plaintext using session keys and then compute the MAC of cipher text.  
+So we are sending (CipherText, MAC_Cipher)  
+On receiver side, we compute MAC of Cipher text and if both matches, message is authentic and we proceed to decrypt the message.  
+
+### MAC-then-Encrypt
+We compute MAC of plain text and encrypt plain_text + MAC using session key.  
+ON receciver side  
+- Use session key we decypt the message first
+- Then we compute MAC of plain text and verifies with incoming MAC.
+
+### Encrypt-and MAC
+Here we first compute MAC of plain text and then ecrypt plain text. So we are sending (Cipher Text, MAC_Plain)
+On receiver side
+- First decypt the cipher text 
+- Compute MAC using decrypted text and MAC key and match.
+https://crypto.stackexchange.com/questions/202/should-we-mac-then-encrypt-or-encrypt-then-mac
+https://crypto.stackexchange.com/questions/15485/why-do-we-encrypt-then-mac-but-sign-then-encrypt
+Encrypt-then-MAC is best of all three approach since we ahave already exchange sessions & MAC keys and we will first compute 
+MAC using exchanged MAC keys and if they mismatch we wont decrypt at all  
+
 
 ### Crytographic hash function
 Example: MD4, MD5, SHA1, SHA256, SHA512
@@ -81,13 +105,11 @@ suspectible to length extension attack, i.e. given a H(x) and length of key , Ha
 - cannot deny having sent/sign that message ( non-repudiation)
 - message was not altered.
 
-First we generate hash of input message and using private key and hashed message , we generate the signature.
-At receving end , we have hashed-message, public key and signature. Using public key on signature , we receive the value 
-and compare the same value with received hashed-message.If they are equal message is OK.
+First we generate hash of input message, Then using private key and hashed message , we generate the signature.
+At receving end , we have message, public key and signature. Using public key on signature , we receive the hashed value 
+and compare the same value with hashed-message(incoming message hashed).
 
-**Encrypt-then-sign**, here the message is first encrypted , hashed and then signed using Digital Signature.
-At receiving end , first we verify the signature using Public key and verify the output with encypted message , if its matched we proceed to decrypt the message.
-
+**Encrypt-then-sign**, 
 
 1st and 3rd point are also supported by HMAC.
 Example: DSA, ECDSA, RSA <br />
@@ -112,9 +134,18 @@ y2 = x3 + ax + b
 and look something like
 ![EC](https://blog.cloudflare.com/content/images/image00.png) <br/>
 https://blog.cloudflare.com/a-relatively-easy-to-understand-primer-on-elliptic-curve-cryptography/
+This also form a group and group laws (closure, inverse, identity, associativity and commutative) are defined **geometrically**  
 
 Explanation:
-Curve has intesresting property, take two points on curve and draw a line, it will intersect  at a third place.
-Draw a vertical line and the place it hit is new point , again draw a line with this new point and A , where ever it hits draw a line up.
+Curve has intesresting property, take two points A, B on curve and draw a line, it will intersect  at a third place.
+Draw a vertical line and the place it hit is new point, this new point is A+B.  
+
+Adding a point to itself is tangent from that point and using similar process above will give A+A = 2A  
+-A will be on symetrically opposite to A over x-axis  
+Note that A+ (-A) should be dfined by this line intersecting at a third point but their is no such intersection !  
+Lets calls this O.  
+ Abelian group axiom can be proved using this  
+
+
 And keep doing that.
 So here the trapdoor function is if you are given a point on curve , you dont know how many times the process is repeated unless we redraw the whole process again.
