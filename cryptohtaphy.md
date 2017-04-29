@@ -87,11 +87,11 @@ ON receciver side
 ### Encrypt-and MAC
 Here we first compute MAC of plain text and then ecrypt plain text. So we are sending (Cipher Text, MAC_Plain)
 On receiver side
-- First decypt the cipher text 
-- Compute MAC using decrypted text and MAC key and match.
-https://crypto.stackexchange.com/questions/202/should-we-mac-then-encrypt-or-encrypt-then-mac
-https://crypto.stackexchange.com/questions/15485/why-do-we-encrypt-then-mac-but-sign-then-encrypt
-Encrypt-then-MAC is best of all three approach since we ahave already exchange sessions & MAC keys and we will first compute 
+- First decypt the cipher text   
+- Compute MAC using decrypted text and MAC key and match.  
+https://crypto.stackexchange.com/questions/202/should-we-mac-then-encrypt-or-encrypt-then-mac  
+https://crypto.stackexchange.com/questions/15485/why-do-we-encrypt-then-mac-but-sign-then-encrypt  
+Encrypt-then-MAC is best of all three approach since we ahave already exchange sessions & MAC keys and we will first compute  
 MAC using exchanged MAC keys and if they mismatch we wont decrypt at all  
 
 
@@ -109,7 +109,17 @@ First we generate hash of input message, Then using private key and hashed messa
 At receving end , we have message, public key and signature. Using public key on signature , we receive the hashed value 
 and compare the same value with hashed-message(incoming message hashed).
 
-**Encrypt-then-sign**, 
+**Sign-then-encrypt** seems to be general approach which is diameterically opposite for MAC  
+In PKI, a certificate authority , hash the certificate and then encrypt using its **private key**  
+Certificate contains all details in plain text (X.509) and also it contained encrypted digital signature  
+On client side, plain text is first hashed using SHA-1/2  
+ecnrypted digital signature is decrypted using **certificate authroty public key**  and the result is match against hash  
+
+
+In MAC our aim was to check for authenicty and integrity for **data**  
+While in Signature our aim is to verify authenicty, integrity as well as non-repudiation for **entity**  
+https://crypto.stackexchange.com/questions/5458/should-we-sign-then-encrypt-or-encrypt-then-sign
+http://commandlinefanatic.com/cgi-bin/showarticle.cgi?article=art012
 
 1st and 3rd point are also supported by HMAC.
 Example: DSA, ECDSA, RSA <br />
