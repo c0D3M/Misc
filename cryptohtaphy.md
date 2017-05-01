@@ -8,6 +8,34 @@ Fin *m* such that *h = g<sup>m</sup>* <br />
  **Z<sub>p</sub><sup>*</sup> group under multiplication** problem is tough to solve for some large prime and used in DH .<br />
  Some places **Z<sub>p</sub><sup>*</sup>** is also written as **F<sub>p</sub><sup>*</sup>** <br/>
 
+## Perfect Forward Secrecy
+Its a feature where if private key is comprmised, sesson keys (symemtric keys for encryption and HMAC) will not be compromised.  
+A unique session key is generated every time user initated a session.  
+As we know in TLS session Pre-Master Secret is encrypted with server public key and which is later on used to generate Master Secret  
+If private key is compromised, this session key wil be exposed.  
+So we will use such cipher suite during key-exchange which is ephemeral, like DH.
+Remember that in DH , our session key was **g<sup>a</sup><sup>b</sup>**
+In DH, everytime client chose a different random secret a.
+Choosing g and a is a fast operation as opposed to RSA , where if every time we have to generate new pair of keys we have to start with p and q prime number and generating prime number is not an easy operation.  
+
+## How SSL works
+https://stribika.github.io/2015/01/04/secure-secure-shell.html
+
+## GCM, ChaCha
+AEAD -. Authentcated, Encrypted, Additional Data. They do encryption and authentication (HMAC) all in one go using a single key, rather than relying on HMAC key.Part of it is plain text ,part of it is encrypted but everything is authenticated.
+AES-GCM is one such AEAD cipher.
+TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+Since in GCM mode no eparate HMAC construction is required , SHA256 is used other functions
+https://crypto.stackexchange.com/questions/26410/whats-the-gcm-sha-256-of-a-tls-protocol
+ChaCha is a stream cipher and faster than AES (software only) , a variant of Salsa
+Poly1305 is MAC algorithm
+
+They are mode of block cipher.
+AES-CTR( AES itself is Block cipher but using CTR convert it into stream cipher).
+Cipher Block Chaining (CBC) , plain text is converted into block and each block of plaintext is XORed with previous cipher block and then encrypted using key.  
+For the first block we use Initialization Vector (IV)  
+CBC-MAC: Similar with CBC but starts with 0 IV and calculate MAC for the message.
+
 ## Diffie-Hellman 
 A method to securely exchange cyptographic keys over a public network.
 
@@ -37,6 +65,14 @@ a is called __discrete logarithm__ of of A with respect to __primitive root__ g 
 However given g,a,p one can find __A__. See [link](https://en.wikipedia.org/wiki/Modular_exponentiation) <br />
 
 ## ECDHE
+Smaller, faster keys and same level of secrecy as achived by 2048+ keys for DH/RSA.  
+_G_ is an initial point on Curve, server chose an random number _a_ and compute a .G , a.G will be apoint lies on curve but finding a from G and a.G is Elliptic curve Disceret Logarithm problem  
+
+Client also chose a random b and compute b.G and send to server.
+Server now has a.b.G and client has b.a.G
+https://crypto.stackexchange.com/questions/5896/does-the-elliptic-curve-ec-cryptosystem-outperform-rsa-and-dl-cryptosystems/5897#5897
+https://security.stackexchange.com/questions/14731/what-is-ecdhe-rsa
+
 
 ## RSA
 - Take two prime number p and q
@@ -68,6 +104,16 @@ We compute MAC of plain text and encrypt plain_text + MAC using session key.
 ON receciver side  
 - Use session key we decypt the message first
 - Then we compute MAC of plain text and verifies with incoming MAC.
+https://eprint.iacr.org/2014/206.pdf
+
+### nonce
+https://security.stackexchange.com/questions/3001/what-is-the-use-of-a-client-nonce
+
+### salt
+Additional data to hash passsword and used to protect against dictionary attack, for an attacker to determine password he has to 
+compute hash for all dictionary with salt and it slows down.
+On the system Hash(salt||password) is saved and salt is saved in plain text, when a user logged we again calculate Hash using
+input string and salt and if both hash matches , password is correct.
 
 ### Encrypt-and MAC
 Here we first compute MAC of plain text and then ecrypt plain text. So we are sending (Cipher Text, MAC_Plain)
