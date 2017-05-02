@@ -196,3 +196,19 @@ Lets calls this O.
 
 And keep doing that.
 So here the trapdoor function is if you are given a point on curve , you dont know how many times the process is repeated unless we redraw the whole process again.
+
+## How TOR Works
+TOR is a network to provide anonymity.  
+TOR connected to directory servers, these are trusted node and used to build a circuit.  
+Suppose source node wants to communicate to destination node over a TOR network
+First it select an entry node and create a TLS tunnel and create session keys.  
+Next it create a tls tunnel between a middle node and our node by using entry node.  
+Next it select and exit node and again create a tls tunnel between source node and exit node.  
+
+Now when a message have to sent to desitination node, first we encrypt with exit node session key.
+
+Here msg is IP packet we wanted to send to destination node  
+TOR Msg = SK1(SK2(SK3(msg))) here entry node will unwrap using SK1 and forward, middle node will unwrap using SK2 and then 
+exit node unwrap using SK3 and finally send the msg to destination node.  
+Generally all TOR nodes are listed and an ISP cna found if you are using TOR or not but 
+TOR bridge are unlisted node and can be used for entry node.
