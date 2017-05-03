@@ -212,3 +212,6 @@ TOR Msg = SK1(SK2(SK3(msg))) here entry node will unwrap using SK1 and forward, 
 exit node unwrap using SK3 and finally send the msg to destination node.  
 Generally all TOR nodes are listed and an ISP cna found if you are using TOR or not but 
 TOR bridge are unlisted node and can be used for entry node.
+
+Bit coin:
+https://chrispacia.wordpress.com/2013/09/02/bitcoin-mining-explained-like-youre-five-part-2-mechanics/
