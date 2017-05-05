@@ -130,15 +130,17 @@ MAC using exchanged MAC keys and if they mismatch we wont decrypt at all
 Example: MD4, MD5, SHA1, SHA256, SHA512
 SHA256(key || message) 
 suspectible to length extension attack, i.e. given a H(x) and length of key , Hash of some other message can be calculated.
+https://blog.cloudflare.com/why-its-harder-to-forge-a-sha-1-certificate-than-it-is-to-find-a-sha-1-collision/
+http://www.win.tue.nl/hashclash/rogue-ca/
 
 ### Digital Signature
 - created by known sender.
 - cannot deny having sent/sign that message ( non-repudiation)
 - message was not altered.
 
+Every digital signature requires a public-private key pair and a hash function.   
 First we generate hash of input message, Then using private key and hashed message , we generate the signature.
-At receving end , we have message, public key and signature. Using public key on signature , we receive the hashed value 
-and compare the same value with hashed-message(incoming message hashed).
+At receving end , we have message, public key and signature. Using public key on signature , we retrieved the hashed value by decrypting, and compare the same value with hashed-message(incoming message hashed).If its a match signature is valid.  
 
 **Sign-then-encrypt** seems to be general approach which is diameterically opposite for MAC  
 In PKI, a certificate authority , hash the certificate and then encrypt using its **private key**  
