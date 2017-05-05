@@ -4,7 +4,7 @@ Any element *h* from **subgroup of G**<br />
 Fin *m* such that *h = g<sup>m</sup>* <br />
  *m= log <sub>g</sub> h*<br />
  Complexity of the solution depends on chosen **group**.<br />
- For some group its easy, example **Z/mZ group under binaryoperation addition** (Z/mZ is the set of integers mod m )<br />
+ For some group its easy, example **Z/mZ group under binary operation addition** (Z/mZ is the set of integers mod m )<br />
  **Z<sub>p</sub><sup>*</sup> group under multiplication** problem is tough to solve for some large prime and used in DH .<br />
  Some places **Z<sub>p</sub><sup>*</sup>** is also written as **F<sub>p</sub><sup>*</sup>** <br/>
 
@@ -22,19 +22,22 @@ Choosing g and a is a fast operation as opposed to RSA , where if every time we 
 https://stribika.github.io/2015/01/04/secure-secure-shell.html
 
 ## GCM, ChaCha
-AEAD -. Authentcated, Encrypted, Additional Data. They do encryption and authentication (HMAC) all in one go using a single key, rather than relying on HMAC key.Part of it is plain text ,part of it is encrypted but everything is authenticated.
-AES-GCM is one such AEAD cipher.
-TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-Since in GCM mode no eparate HMAC construction is required , SHA256 is used other functions
+AEAD -. Authentcated, Encrypted, Additional Data. 
+They do encryption and authentication (HMAC) all in one go using a single key, rather than relying on HMAC key.  
+Part of it is plain text ,part of it is encrypted but everything is authenticated.  
+AES-GCM is one such AEAD cipher.  
+TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 is  cipher suite   
+Since in GCM mode no eparate HMAC construction is required , SHA256 is used for other functions like digital signature.  
 https://crypto.stackexchange.com/questions/26410/whats-the-gcm-sha-256-of-a-tls-protocol
-ChaCha is a stream cipher and faster than AES (software only) , a variant of Salsa
+ChaCha is a stream cipher and faster than AES (software only) , a variant of Salsa  
 Poly1305 is MAC algorithm
 
-They are mode of block cipher.
-AES-CTR( AES itself is Block cipher but using CTR convert it into stream cipher).
+They are mode of block cipher.  
+AES-CTR( AES itself is Block cipher but using CTR convert it into stream cipher).  
 Cipher Block Chaining (CBC) , plain text is converted into block and each block of plaintext is XORed with previous cipher block and then encrypted using key.  
 For the first block we use Initialization Vector (IV)  
-CBC-MAC: Similar with CBC but starts with 0 IV and calculate MAC for the message.
+CBC-MAC: Similar with CBC but starts with 0 IV and calculate MAC for the message.  
+What is GCM  
 
 ## Diffie-Hellman 
 A method to securely exchange cyptographic keys over a public network.
