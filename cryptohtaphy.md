@@ -134,9 +134,9 @@ MAC using exchanged MAC keys and if they mismatch we wont decrypt at all
 ### Crytographic hash function
 Example: MD4, MD5, SHA1, SHA256, SHA512
 SHA256(key || message) 
-suspectible to length extension attack, i.e. given a H(x) and length of key , Hash of some other message can be calculated.
-https://blog.cloudflare.com/why-its-harder-to-forge-a-sha-1-certificate-than-it-is-to-find-a-sha-1-collision/
-http://www.win.tue.nl/hashclash/rogue-ca/
+suspectible to length extension attack, i.e. given a H(x) and length of key , Hash of some other message can be calculated.  
+https://blog.cloudflare.com/why-its-harder-to-forge-a-sha-1-certificate-than-it-is-to-find-a-sha-1-collision/  
+http://www.win.tue.nl/hashclash/rogue-ca/  
 
 ### Digital Signature
 - created by known sender.
