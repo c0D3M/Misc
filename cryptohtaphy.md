@@ -220,6 +220,7 @@ TOR bridge are unlisted node and can be used for entry node.
 
 Bit coin:
 https://chrispacia.wordpress.com/2013/09/02/bitcoin-mining-explained-like-youre-five-part-2-mechanics/
+http://www.coindesk.com/information/what-is-bitcoin/
 
 ## Block Ciphers
 ### ECB Mode
@@ -230,4 +231,7 @@ PT is divided in block
 PT<sub>i</sub> = PT<sub>i</sub> XOR CT<sub>i-1</sub>
 
 ### Counter Mode 
-### Counter Mode
+Counter || IV is encrypted and then XORed with PT block
+
+### GCM Mode
+Provides AEAD , after encryption the CT is multiplied with Galios Filed Polynomial number 
