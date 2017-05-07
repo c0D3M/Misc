@@ -1,8 +1,8 @@
 ## Discrete Logarithm Problem
-Fix a group G and an element *g* from that group.<br />
+Fix a group G and a generator element *g* from that group.<br />
 Any element *h* from **subgroup of G**<br />
 Fin *m* such that *h = g<sup>m</sup>* <br />
- *m= log <sub>g</sub> h*<br />
+ *m= log <sub>g</sub> h*<br /> [This is continiuos log]
  Complexity of the solution depends on chosen **group**.<br />
  For some group its easy, example **Z/mZ group under binary operation addition** (Z/mZ is the set of integers mod m )<br />
  **Z<sub>p</sub><sup>*</sup> group under multiplication** problem is tough to solve for some large prime and used in DH .<br />
@@ -28,9 +28,9 @@ Part of it is plain text ,part of it is encrypted but everything is authenticate
 AES-GCM is one such AEAD cipher.  
 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 is  cipher suite   
 Since in GCM mode no eparate HMAC construction is required , SHA256 is used for other functions like digital signature.  
-https://crypto.stackexchange.com/questions/26410/whats-the-gcm-sha-256-of-a-tls-protocol
+https://crypto.stackexchange.com/questions/26410/whats-the-gcm-sha-256-of-a-tls-protocol  
 ChaCha is a stream cipher and faster than AES (software only) , a variant of Salsa  
-Poly1305 is MAC algorithm
+Poly1305 is MAC algorithm  
 
 They are mode of block cipher.  
 AES-CTR( AES itself is Block cipher but using CTR convert it into stream cipher).  
@@ -117,6 +117,8 @@ Additional data to hash passsword and used to protect against dictionary attack,
 compute hash for all dictionary with salt and it slows down.
 On the system Hash(salt||password) is saved and salt is saved in plain text, when a user logged we again calculate Hash using
 input string and salt and if both hash matches , password is correct.
+
+### entropy
 
 ### Encrypt-and MAC
 Here we first compute MAC of plain text and then ecrypt plain text. So we are sending (Cipher Text, MAC_Plain)
