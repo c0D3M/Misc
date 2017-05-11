@@ -120,6 +120,13 @@ input string and salt and if both hash matches , password is correct.
 
 ### entropy
 
+### maleability
+A ciphertext is changed such that when decrypted it produced a different plaintext.  
+See example of malleable on wiki https://en.wikipedia.org/wiki/Malleability_(cryptography)  
+
+
+## ElGamal
+
 ### Encrypt-and MAC
 Here we first compute MAC of plain text and then ecrypt plain text. So we are sending (Cipher Text, MAC_Plain)
 On receiver side
