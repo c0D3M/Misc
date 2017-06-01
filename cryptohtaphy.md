@@ -8,36 +8,15 @@ Fin *m* such that *h = g<sup>m</sup>* <br />
  **Z<sub>p</sub><sup>*</sup> group under multiplication** problem is tough to solve for some large prime and used in DH .<br />
  Some places **Z<sub>p</sub><sup>*</sup>** is also written as **F<sub>p</sub><sup>*</sup>** <br/>
 
-## Perfect Forward Secrecy
-Its a feature where if private key is comprmised, sesson keys (symemtric keys for encryption and HMAC) will not be compromised.  
-A unique session key is generated every time user initated a session.  
-As we know in TLS session Pre-Master Secret is encrypted with server public key and which is later on used to generate Master Secret  
-If private key is compromised, this session key wil be exposed.  
-So we will use such cipher suite during key-exchange which is ephemeral, like DH.
-Remember that in DH , our session key was **g<sup>a</sup><sup>b</sup>**
-In DH, everytime client chose a different random secret a.
-Choosing g and a is a fast operation as opposed to RSA , where if every time we have to generate new pair of keys we have to start with p and q prime number and generating prime number is not an easy operation.  
+## Primitive root modulo n
+3 is a primitive root of 7 , meaning when raised to any power between [1,6] mod 7 , result is some order of [1,6].<br />
+The powers of 3, reduced modulo 7, are 3, 2, 6, 4, 5, 1, so we does get everything between [1,6] <br />
 
-## How SSL works
-https://stribika.github.io/2015/01/04/secure-secure-shell.html
+Note that after g<sup>p-1</sup> the power starts all over <br />
+Fermat's little theorem  g<sup>p-1</sup> ≡ 1 mod p , g<sup>p</sup> = g<sup>p-1</sup> . g<sup>1</sup> <br />
 
-## GCM, ChaCha
-AEAD -. Authentcated, Encrypted, Additional Data. 
-They do encryption and authentication (HMAC) all in one go using a single key, rather than relying on HMAC key.  
-Part of it is plain text ,part of it is encrypted but everything is authenticated.  
-AES-GCM is one such AEAD cipher.  
-TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 is  cipher suite   
-Since in GCM mode no eparate HMAC construction is required , SHA256 is used for other functions like digital signature.  
-https://crypto.stackexchange.com/questions/26410/whats-the-gcm-sha-256-of-a-tls-protocol  
-ChaCha is a stream cipher and faster than AES (software only) , a variant of Salsa  
-Poly1305 is MAC algorithm  
-
-They are mode of block cipher.  
-AES-CTR( AES itself is Block cipher but using CTR convert it into stream cipher).  
-Cipher Block Chaining (CBC) , plain text is converted into block and each block of plaintext is XORed with previous cipher block and then encrypted using key.  
-For the first block we use Initialization Vector (IV)  
-CBC-MAC: Similar with CBC but starts with 0 IV and calculate MAC for the message.  
-What is GCM  
+a is called __discrete logarithm__ of of A with respect to __primitive root__ g and computing for __a__ is comoutationally harder.<br />
+However given g,a,p one can find __A__. See [link](https://en.wikipedia.org/wiki/Modular_exponentiation) <br />
 
 ## Diffie-Hellman 
 A method to securely exchange cyptographic keys over a public network.
@@ -57,25 +36,6 @@ An eavesdropper to find **a** has to solve <br />
 __g<sup>a</sup> ≡ A (mod p)__
 This problem is known as  [discrete lograthimic problem](https://en.wikipedia.org/wiki/Discrete_logarithm)<br />
 
-## Primitive root modulo n
-3 is a primitive root of 7 , meaning when raised to any power between [1,6] mod 7 , result is some order of [1,6].<br />
-The powers of 3, reduced modulo 7, are 3, 2, 6, 4, 5, 1, so we does get everything between [1,6] <br />
-
-Note that after g<sup>p-1</sup> the power starts all over <br />
-Fermat's little theorem  g<sup>p-1</sup> ≡ 1 mod p , g<sup>p</sup> = g<sup>p-1</sup> . g<sup>1</sup> <br />
-
-a is called __discrete logarithm__ of of A with respect to __primitive root__ g and computing for __a__ is comoutationally harder.<br />
-However given g,a,p one can find __A__. See [link](https://en.wikipedia.org/wiki/Modular_exponentiation) <br />
-
-## ECDHE
-Smaller, faster keys and same level of secrecy as achived by 2048+ keys for DH/RSA.  
-_G_ is an initial point on Curve, server chose an random number _a_ and compute a .G , a.G will be apoint lies on curve but finding a from G and a.G is Elliptic curve Disceret Logarithm problem  
-
-Client also chose a random b and compute b.G and send to server.
-Server now has a.b.G and client has b.a.G
-https://crypto.stackexchange.com/questions/5896/does-the-elliptic-curve-ec-cryptosystem-outperform-rsa-and-dl-cryptosystems/5897#5897
-https://security.stackexchange.com/questions/14731/what-is-ecdhe-rsa
-
 
 ## RSA
 - Take two prime number p and q
@@ -85,6 +45,49 @@ https://security.stackexchange.com/questions/14731/what-is-ecdhe-rsa
 - (d,n) is private key and (e, n) is public key
 Here the trapdoor function (easy in one way , difficult in other) is factoring of n, multiplication of p and q are easy.
 
+## Perfect Forward Secrecy
+Its a feature where if private key is comprmised, sesson keys (symemtric keys for encryption and HMAC) will not be compromised.  
+A unique session key is generated every time user initated a session.  
+As we know in TLS session Pre-Master Secret is encrypted with server public key and which is later on used to generate Master Secret  
+If private key is compromised, this session key wil be exposed.  
+So we will use such cipher suite during key-exchange which is ephemeral, like DH.
+Remember that in DH , our session key was **g<sup>a</sup><sup>b</sup>**
+In DH, everytime client chose a different random secret a.
+Choosing g and a is a fast operation as opposed to RSA , where if every time we have to generate new pair of keys we have to start with p and q prime number and generating prime number is not an easy operation.  
+
+### Digital Signature
+- created by known sender.
+- cannot deny having sent/sign that message ( non-repudiation)
+- message was not altered.
+
+Every digital signature requires a public-private key pair and a hash function.   
+First we generate hash of input message, Then using private key and hashed message , we generate the signature.
+At receving end , we have message, public key and signature. Using public key on signature , we retrieved the hashed value by decrypting, and compare the same value with hashed-message(incoming message hashed).If its a match signature is valid.  
+
+**Sign-then-encrypt** seems to be general approach which is diameterically opposite for MAC  
+In PKI, a certificate authority , hash the certificate and then encrypt using its **private key**  
+Certificate contains all details in plain text (X.509) and also it contained encrypted digital signature  
+On client side, plain text is first hashed using SHA-1/2  
+ecnrypted digital signature is decrypted using **certificate authroty public key**  and the result is match against hash  
+
+In MAC our aim was to check for authenicty and integrity for **data**  
+While in Signature our aim is to verify authenicty, integrity as well as non-repudiation for **entity**  
+https://crypto.stackexchange.com/questions/5458/should-we-sign-then-encrypt-or-encrypt-then-sign
+http://commandlinefanatic.com/cgi-bin/showarticle.cgi?article=art012
+
+1st and 3rd point are also supported by HMAC.
+Example: DSA, ECDSA, RSA <br />
+
+Cryptographic primitive | Hash |    MAC    | Digital
+------------------------|------|-----------|-------------
+Integrity               |  Yes |    Yes    |   Yes
+Authentication          |  No  |    Yes    |   Yes
+Non-repudiation         |  No  |    No     |   Yes
+Kind of keys            | none | symmetric | asymmetric
+
+DSA vs RSA vs ECDSA
+
+DSA & ECDSA both reply on a random number generator , so if random number generator is poor, private key can be leaked.
 
 ## MAC (Message Authentication Code)
 Mac preserves both **authenticity** and **integrity** of message.
@@ -109,24 +112,6 @@ ON receciver side
 - Then we compute MAC of plain text and verifies with incoming MAC.
 https://eprint.iacr.org/2014/206.pdf
 
-### nonce
-https://security.stackexchange.com/questions/3001/what-is-the-use-of-a-client-nonce
-
-### salt
-Additional data to hash passsword and used to protect against dictionary attack, for an attacker to determine password he has to 
-compute hash for all dictionary with salt and it slows down.
-On the system Hash(salt||password) is saved and salt is saved in plain text, when a user logged we again calculate Hash using
-input string and salt and if both hash matches , password is correct.
-
-### entropy
-
-### maleability
-A ciphertext is changed such that when decrypted it produced a different plaintext.  
-See example of malleable on wiki https://en.wikipedia.org/wiki/Malleability_(cryptography)  
-
-
-## ElGamal
-
 ### Encrypt-and MAC
 Here we first compute MAC of plain text and then ecrypt plain text. So we are sending (Cipher Text, MAC_Plain)
 On receiver side
@@ -137,6 +122,29 @@ https://crypto.stackexchange.com/questions/15485/why-do-we-encrypt-then-mac-but-
 Encrypt-then-MAC is best of all three approach since we ahave already exchange sessions & MAC keys and we will first compute  
 MAC using exchanged MAC keys and if they mismatch we wont decrypt at all  
 
+## Block Ciphers
+### ECB Mode
+PT is divided in block and XOR with key 
+
+### CBC mode
+PT is divided in block 
+PT<sub>i</sub> = PT<sub>i</sub> XOR CT<sub>i-1</sub>
+
+### Counter Mode 
+Counter || IV is encrypted and then XORed with PT block
+
+### GCM Mode
+Provides AEAD , after encryption the CT is multiplied with Galios Filed Polynomial number 
+
+## AEAD -. Authentcated, Encrypted, Additional Data. 
+They do encryption and authentication (HMAC) all in one go using a single key, rather than relying on HMAC key.  
+Part of it is plain text ,part of it is encrypted but everything is authenticated.  
+AES-GCM is one such AEAD cipher.  
+TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 is  cipher suite   
+Since in GCM mode no separate HMAC construction is required , SHA256 is used for other functions like digital signature.  
+https://crypto.stackexchange.com/questions/26410/whats-the-gcm-sha-256-of-a-tls-protocol  
+ChaCha is a stream cipher and faster than AES (software only) , a variant of Salsa  
+Poly1305 is MAC algorithm.  
 
 ### Crytographic hash function
 Example: MD4, MD5, SHA1, SHA256, SHA512
@@ -144,48 +152,6 @@ SHA256(key || message)
 suspectible to length extension attack, i.e. given a H(x) and length of key , Hash of some other message can be calculated.  
 https://blog.cloudflare.com/why-its-harder-to-forge-a-sha-1-certificate-than-it-is-to-find-a-sha-1-collision/  
 http://www.win.tue.nl/hashclash/rogue-ca/  
-
-### Digital Signature
-- created by known sender.
-- cannot deny having sent/sign that message ( non-repudiation)
-- message was not altered.
-
-Every digital signature requires a public-private key pair and a hash function.   
-First we generate hash of input message, Then using private key and hashed message , we generate the signature.
-At receving end , we have message, public key and signature. Using public key on signature , we retrieved the hashed value by decrypting, and compare the same value with hashed-message(incoming message hashed).If its a match signature is valid.  
-
-**Sign-then-encrypt** seems to be general approach which is diameterically opposite for MAC  
-In PKI, a certificate authority , hash the certificate and then encrypt using its **private key**  
-Certificate contains all details in plain text (X.509) and also it contained encrypted digital signature  
-On client side, plain text is first hashed using SHA-1/2  
-ecnrypted digital signature is decrypted using **certificate authroty public key**  and the result is match against hash  
-
-
-In MAC our aim was to check for authenicty and integrity for **data**  
-While in Signature our aim is to verify authenicty, integrity as well as non-repudiation for **entity**  
-https://crypto.stackexchange.com/questions/5458/should-we-sign-then-encrypt-or-encrypt-then-sign
-http://commandlinefanatic.com/cgi-bin/showarticle.cgi?article=art012
-
-1st and 3rd point are also supported by HMAC.
-Example: DSA, ECDSA, RSA <br />
-
-
-Cryptographic primitive | Hash |    MAC    | Digital
-------------------------|------|-----------|-------------
-Integrity               |  Yes |    Yes    |   Yes
-Authentication          |  No  |    Yes    |   Yes
-Non-repudiation         |  No  |    No     |   Yes
-Kind of keys            | none | symmetric | asymmetric
-
-DSA vs RSA vs ECDSA
-
-DSA & ECDSA both reply on a random number generator , so if random number generator is poor, private key can be leaked.
-
- ### Elliptic Curve Discrete Logarithm Problem
- is the discrete logarithm problem for the group of points on an elliptic curve over a finite field.  
- Best known algroithm to solve it is exponential as compared to sub-exponential algorithm for DLP above.  
- http://www.math.brown.edu/~jhs/Presentations/WyomingEllipticCurve.pdf  
- https://blog.cloudflare.com/ecdsa-the-digital-signature-algorithm-of-a-better-internet/
 
 ## Elliptic Curve Cryptography
 high security with short, fast keys and their isn't trapdoor yet.
@@ -207,9 +173,45 @@ Note that A+ (-A) should be dfined by this line intersecting at a third point bu
 Lets calls this O.  
  Abelian group axiom can be proved using this  
 
-
 And keep doing that.
 So here the trapdoor function is if you are given a point on curve , you dont know how many times the process is repeated unless we redraw the whole process again.
+
+ ### Elliptic Curve Discrete Logarithm Problem
+ is the discrete logarithm problem for the group of points on an elliptic curve over a finite field.  
+ Best known algroithm to solve it is exponential as compared to sub-exponential algorithm for DLP above.  
+ http://www.math.brown.edu/~jhs/Presentations/WyomingEllipticCurve.pdf  
+ https://blog.cloudflare.com/ecdsa-the-digital-signature-algorithm-of-a-better-internet/
+
+## ECDHE
+Smaller, faster keys and same level of secrecy as achived by 2048+ keys for DH/RSA.  
+_G_ is an initial point on Curve, server chose an random number _a_ and compute a .G , a.G will be apoint lies on curve but finding a from G and a.G is Elliptic curve Disceret Logarithm problem  
+
+Client also chose a random b and compute b.G and send to server.
+Server now has a.b.G and client has b.a.G
+https://crypto.stackexchange.com/questions/5896/does-the-elliptic-curve-ec-cryptosystem-outperform-rsa-and-dl-cryptosystems/5897#5897
+https://security.stackexchange.com/questions/14731/what-is-ecdhe-rsa
+
+### Miscellaneous Topics
+
+### nonce
+https://security.stackexchange.com/questions/3001/what-is-the-use-of-a-client-nonce
+
+### salt
+Additional data to hash passsword and used to protect against dictionary attack, for an attacker to determine password he has to 
+compute hash for all dictionary with salt and it slows down.
+On the system Hash(salt||password) is saved and salt is saved in plain text, when a user logged we again calculate Hash using
+input string and salt and if both hash matches , password is correct.
+
+### entropy
+
+### maleability
+A ciphertext is changed such that when decrypted it produced a different plaintext.  
+See example of malleable on wiki https://en.wikipedia.org/wiki/Malleability_(cryptography)  
+
+
+## ElGamal
+
+### Cryptographic Usage
 
 ## How TOR Works
 TOR is a network to provide anonymity.  
@@ -227,20 +229,12 @@ exit node unwrap using SK3 and finally send the msg to destination node.
 Generally all TOR nodes are listed and an ISP cna found if you are using TOR or not but 
 TOR bridge are unlisted node and can be used for entry node.
 
-Bit coin:
+## How SSL works
+https://stribika.github.io/2015/01/04/secure-secure-shell.html
+
+## Bit coin:
 https://chrispacia.wordpress.com/2013/09/02/bitcoin-mining-explained-like-youre-five-part-2-mechanics/
 http://www.coindesk.com/information/what-is-bitcoin/
 
-## Block Ciphers
-### ECB Mode
-PT is divided in block and XOR with key 
-
-### CBC mode
-PT is divided in block 
-PT<sub>i</sub> = PT<sub>i</sub> XOR CT<sub>i-1</sub>
-
-### Counter Mode 
-Counter || IV is encrypted and then XORed with PT block
-
-### GCM Mode
-Provides AEAD , after encryption the CT is multiplied with Galios Filed Polynomial number 
+## Whatsapp Security
+https://www.whatsapp.com/security/WhatsApp-Security-Whitepaper.pdf  
