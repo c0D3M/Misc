@@ -126,7 +126,8 @@ MAC using exchanged MAC keys and if they mismatch we wont decrypt at all
 
 ## Block Ciphers
 ### ECB Mode
-PT is divided in block and XOR with key 
+PT is divided in block and XOR with key  
+Disadvantage of this method is same block of plain text will result in same block of ciphertext thus no pseudorandomness in cihper text.  
 
 ### CBC mode
 PT is divided in block 
@@ -209,6 +210,18 @@ input string and salt and if both hash matches , password is correct.
 ### maleability
 A ciphertext is changed such that when decrypted it produced a different plaintext.  
 See example of malleable on wiki https://en.wikipedia.org/wiki/Malleability_(cryptography)  
+
+### Semantic Security
+Knowledge of cipher(and length) for a given plain text does not reveal any partial information on the message that can be physically extracted in Probablistic-Polynomial Time Algorithm (PPTA). IND-CPA is conceptually similar to Semantic Security.
+
+### CPA (Chosen Plaintext Attack)
+In this type of attack, advesary has access to encryption oracle.
+
+### CCA
+
+### IND-CCA
+IND stands for indistinguishability where an attacker give a cipher text and two plain text cannot identfy which plain text is encrypted.
+
 
 
 ## ElGamal
