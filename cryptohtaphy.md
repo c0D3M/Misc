@@ -100,19 +100,19 @@ New fasters onces like UMAC & VMAC uses universal hashing.created by know sender
 MAC vs SHA256 : Key difference is cryptographic hash function doesnt use any shared key to derive authentication code hence SHA cannot guarantee authenticty of a message.
 Both can however guarantee integrity of message.  
 
-### Encrypt-then-MAC
+### Encrypt-then-MAC (IPSec)
 First we encrypt the plaintext using session keys and then compute the MAC of cipher text.  
 So we are sending (CipherText, MAC_Cipher)  
 On receiver side, we compute MAC of Cipher text and if both matches, message is authentic and we proceed to decrypt the message.  
 
-### MAC-then-Encrypt
+### MAC-then-Encrypt(TLS)
 We compute MAC of plain text and encrypt plain_text + MAC using session key.  
 ON receciver side  
 - Use session key we decypt the message first
 - Then we compute MAC of plain text and verifies with incoming MAC.
 https://eprint.iacr.org/2014/206.pdf
 
-### Encrypt-and MAC
+### Encrypt-and MAC(SSH)
 Here we first compute MAC of plain text and then ecrypt plain text. So we are sending (Cipher Text, MAC_Plain)
 On receiver side
 - First decypt the cipher text   
@@ -121,6 +121,8 @@ https://crypto.stackexchange.com/questions/202/should-we-mac-then-encrypt-or-enc
 https://crypto.stackexchange.com/questions/15485/why-do-we-encrypt-then-mac-but-sign-then-encrypt  
 Encrypt-then-MAC is best of all three approach since we ahave already exchange sessions & MAC keys and we will first compute  
 MAC using exchanged MAC keys and if they mismatch we wont decrypt at all  
+
+## Stream Cipher
 
 ## Block Ciphers
 ### ECB Mode
