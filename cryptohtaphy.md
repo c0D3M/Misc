@@ -196,7 +196,8 @@ https://security.stackexchange.com/questions/14731/what-is-ecdhe-rsa
 
 ### Miscellaneous Topics
 
-### nonce
+### client nonce
+Used to avoid reply attacks
 https://security.stackexchange.com/questions/3001/what-is-the-use-of-a-client-nonce
 
 ### salt
@@ -204,6 +205,7 @@ Additional data to hash passsword and used to protect against dictionary attack,
 compute hash for all dictionary with salt and it slows down.
 On the system Hash(salt||password) is saved and salt is saved in plain text, when a user logged we again calculate Hash using
 input string and salt and if both hash matches , password is correct.
+https://security.stackexchange.com/questions/211/how-to-securely-hash-passwords
 
 ### entropy
 
@@ -214,13 +216,29 @@ See example of malleable on wiki https://en.wikipedia.org/wiki/Malleability_(cry
 ### Semantic Security
 Knowledge of cipher(and length) for a given plain text does not reveal any partial information on the message that can be physically extracted in Probablistic-Polynomial Time Algorithm (PPTA). IND-CPA is conceptually similar to Semantic Security.
 
+### IND
+IND stands for indistinguishability where an attacker given a cipher text and two plain text cannot identfy which plain text is encrypted.
+
+### NM (Non-Malleability)
+Given a cipher text, an adversary cannot construct another cipher , whose plaintext is some meaningful to the initial one.
+Example: Textbook RSA is Malleabile(or IND-CCA secure).
+IND and NM are equivalent under CCA
+
 ### CPA (Chosen Plaintext Attack)
 In this type of attack, advesary has access to encryption oracle.
 
-### CCA
+### CCA1
+Advesary has access to decryption oracle + CPA.
+But the decryotion oracle can only be used until given the challenge ciphertext.
 
-### IND-CCA
-IND stands for indistinguishability where an attacker give a cipher text and two plain text cannot identfy which plain text is encrypted.
+### CCA2
+CCA+ decryption orcale can be used as long as needed.
+Only restriction is one cannot decrypt the challenge itself.
+
+One can mix-and-match {NM, IND} and {CPA, CCA1, CCA2} in any combination.
+
+https://crypto.stackexchange.com/questions/26689/easy-explanation-of-ind-security-notions
+
 
 
 
