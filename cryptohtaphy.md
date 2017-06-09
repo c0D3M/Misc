@@ -43,7 +43,9 @@ This problem is known as  [discrete lograthimic problem](https://en.wikipedia.or
 - choose any number 1 < e < lcm(p-1, q-1)
 - d is modular multiplixative inverse of e mod lcm(p-1, q-1)
 - (d,n) is private key and (e, n) is public key
-Here the trapdoor function (easy in one way , difficult in other) is factoring of n, multiplication of p and q are easy.
+Here the trapdoor function (easy in one way , difficult in other) is factoring of n, multiplication of p and q are easy.  
+https://security.stackexchange.com/questions/20803/how-does-ssl-tls-work
+
 
 ## Perfect Forward Secrecy
 Its a feature where if private key is comprmised, sesson keys (symemtric keys for encryption and HMAC) will not be compromised.  
@@ -243,6 +245,8 @@ https://crypto.stackexchange.com/questions/26689/easy-explanation-of-ind-securit
 
 
 ## ElGamal
+Based on DH, 
+in short Shared key is used for encryption and receiver used multiplicate invserve of shared key to decrypt  
 
 ### Cryptographic Usage
 
