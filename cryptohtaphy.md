@@ -247,6 +247,8 @@ https://crypto.stackexchange.com/questions/26689/easy-explanation-of-ind-securit
 ## ElGamal
 Based on DH, 
 in short Shared key is used for encryption and receiver used multiplicate invserve of shared key to decrypt  
+This is not CCA secure, reason is if you multiplying a cipher text of a known plain text to a cipher and ask decryption oracle,
+it cant deny and then then plain text can be extrcated  
 
 ### Cryptographic Usage
 
@@ -275,3 +277,6 @@ http://www.coindesk.com/information/what-is-bitcoin/
 
 ## Whatsapp Security
 https://www.whatsapp.com/security/WhatsApp-Security-Whitepaper.pdf  
+
+## Useful Links
+https://freedom-to-tinker.com/2011/03/30/building-better-ca-infrastructure/
