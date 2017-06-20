@@ -1,5 +1,3 @@
-Primality Testing
-Euler Totient
 ## Modular Multiplicaative Inverse
 ## Chinese Remainder Theorem
 Smallest number which when divided by x, y, z leaves remainder a, b, c
