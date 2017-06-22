@@ -1,3 +1,16 @@
+## Euler Totient
+Count number of positive integer relative prime to it.  
+For example  
+<a href="https://www.codecogs.com/eqnedit.php?latex=\phi&space;(12)&space;=&space;4" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi&space;(12)&space;=&space;4" title="\phi (12) = 4" /></a>
+because {5 , 7, 9, 11} are all relative prime to 12 and cardinality of that set is 5.  
+Their is a formula to calculate it directly  
+<a href="https://www.codecogs.com/eqnedit.php?latex=\phi&space;(n)&space;=&space;n&space;.&space;\prod_{p}^{n}&space;(1-1&space;/p)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi&space;(n)&space;=&space;n&space;.&space;\prod_{p}^{n}&space;(1-1&space;/p)" title="\phi (n) = n . \prod_{p}^{n} (1-1 /p)" /></a>
+p is prime divisior of n
+
+Example n =12 , its prime divisor are 2 and 3 only   
+Eukter totient (12) = 12 . (1-1/2) .(1-1/3) = 4
+
+
 ## Euclidean Algorithm
 Suppose you have to find GCD of two number 1701, 3768  
 - Start with larger of two number  
