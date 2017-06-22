@@ -23,7 +23,7 @@ from 3 we know 129 = 366 - (237 * 1)   3 = 6 * 237 - 11 * 366 + 11 * 237     => 
 from 2 we know 237 = 1701 - (366 * 4)  3 = 17 * 1701 - 68 * 366 - 11 * 366   => 3 = 17 * 1701 - 79 * 366  
 from 1 we know 366 = 3768 - (1701 * 2) 3=  17 * 1701 - 79 * 3768 +158 * 1701 => 3 = 175 * 1701 - 79 * 3768  
 
-Hence __ 3 = 175 * 1701 - 79 * 3768__ GCD is represented in some linear form of inputs.  
+Hence __3 = 175 * 1701 - 79 * 3768__ GCD is represented in some linear form of inputs.  
 
 ## Modular Multiplicative Inverse
 
