@@ -3,15 +3,30 @@ Suppose you have to find GCD of two number 1701, 3768
 - Start with larger of two number  
 3768 = 1701 * q + r  
 After each step move q -> LHS and r in place of q, do this until we get remainder a 0  
-3768 = 1701 * 2+ 366  
-1701 = 366 * 4 + 237  
-366  = 237 * 1 + 129  
-237  = 129 * 1 + 108  
-129  = 108 * 1 + 21  
-108  = 21  * 5 + 3  
-21   = 3 * 7   + 0    <---- So our __GCD is 3__
+3768 = 1701 * 2+ 366  (1)  
+1701 = 366 * 4 + 237  (2)  
+366  = 237 * 1 + 129  (3)  
+237  = 129 * 1 + 108  (4)  
+129  = 108 * 1 + 21   (5)  
+108  = 21  * 5 + 3    (6)  
+21   = 3 * 7   + 0    <---- So our __GCD(3768, 1701) is 3__
 
-## Modular Multiplicative Inverse (Extended Euclidean Algorithm)
+## Extended Euclidean Algorithm
+Idea is to represent the GCD in the linear form of the number  
+For example  
+__3 = 376 * x + 1701 * y__ [where x and y are Integers]  
+We can traverse backward  
+from 6 we get 3 = 108 - (21 * 5)  
+from 5 we know 21 =  129 - (108 * 1)   3 = 108 - [5 * (129 - 108)]           =>  3 = 6 * 108 - 5 * 129  
+from 4 we know 108 = 237 - (129 * 1)   3 = 6 * 237 - 6 * 129 - 5 * 129       => 3 =6 * 237 - 11 * 129  
+from 3 we know 129 = 366 - (237 * 1)   3 = 6 * 237 - 11 * 366 + 11 * 237     => 3= 17 * 237 - 11 * 366  
+from 2 we know 237 = 1701 - (366 * 4)  3 = 17 * 1701 - 68 * 366 - 11 * 366   => 3 = 17 * 1701 - 79 * 366  
+from 1 we know 366 = 3768 - (1701 * 2) 3=  17 * 1701 - 79 * 3768 +158 * 1701 => 3 = 175 * 1701 - 79 * 3768  
+
+Hence __ 3 = 175 * 1701 - 79 * 3768__ GCD is represented in some linear form of inputs.  
+
+## Modular Multiplicative Inverse
+
 ## Chinese Remainder Theorem
 Smallest number which when divided by x, y, z leaves remainder a, b, c
 
