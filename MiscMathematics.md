@@ -1,4 +1,17 @@
-## Modular Multiplicaative Inverse
+## Euclidean Algorithm
+Suppose you have to find GCD of two number 1701, 3768  
+- Start with larger of two number  
+3768 = 1701 * q + r  
+After each step move q -> LHS and r in place of q, do this until we get remainder a 0  
+3768 = 1701 * 2+ 366  
+1701 = 366 * 4 + 237  
+366  = 237 * 1 + 129  
+237  = 129 * 1 + 108  
+129  = 108 * 1 + 21  
+108  = 21  * 5 + 3  
+21   = 3 * 7   + 0    <---- So our __GCD is 3__
+
+## Modular Multiplicative Inverse (Extended Euclidean Algorithm)
 ## Chinese Remainder Theorem
 Smallest number which when divided by x, y, z leaves remainder a, b, c
 
