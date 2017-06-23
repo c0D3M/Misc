@@ -1,14 +1,19 @@
+## Fundamental Theorem of Arithmetic
+Any number can be represented in form of prime exponents and this combination is unique  
+*n = p<sub>1</sub><sup>k<sub>1</sub></sup>....p<sub>r</sub><sup>k<sub>r</sub></sup>*
 ## Euler Totient
 Count number of positive integer relative prime to it.  
 For example  
 <a href="https://www.codecogs.com/eqnedit.php?latex=\phi&space;(12)&space;=&space;4" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi&space;(12)&space;=&space;4" title="\phi (12) = 4" /></a>
-because {5 , 7, 9, 11} are all relative prime to 12 and cardinality of that set is 5.  
+because {1, 5 , 7, 11} are all relative prime to 12 and cardinality of that set is 4.  
 Their is a formula to calculate it directly  
 <a href="https://www.codecogs.com/eqnedit.php?latex=\phi&space;(n)&space;=&space;n&space;.&space;\prod_{p}^{n}&space;(1-1&space;/p)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi&space;(n)&space;=&space;n&space;.&space;\prod_{p}^{n}&space;(1-1&space;/p)" title="\phi (n) = n . \prod_{p}^{n} (1-1 /p)" /></a>
 p is prime divisior of n
 
 Example n =12 , its prime divisor are 2 and 3 only   
-Eukter totient (12) = 12 . (1-1/2) .(1-1/3) = 4
+Eulter totient (12) = 12 . (1-1/2) .(1-1/3) = 4 i.e. {1, 5, 7, 11}   
+
+For __prime number__ its Euler totient will always be p-1, since prime number between 1 to p-1 are all relative prime to p.
 
 
 ## Euclidean Algorithm
@@ -39,6 +44,39 @@ from 1 we know 366 = 3768 - (1701 * 2) 3=  17 * 1701 - 79 * 3768 +158 * 1701 => 
 Hence __3 = 175 * 1701 - 79 * 3768__ GCD is represented in some linear form of inputs.  
 
 ## Modular Multiplicative Inverse
+Sometime we are given a problem  
+a .x  = 1 mod n...(1)  
+and we haev to find x which is multiplicative inverse of a mod n.  
+
+if n is prime we can use Fermat's Little Theorem to find it quickly
+
+Fermat's Little theorem states  
+<a href="https://www.codecogs.com/eqnedit.php?latex=a^{p-1}&space;\equiv&space;1&space;(mod&space;n)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?a^{p-1}&space;\equiv&space;1&space;(mod&space;n)" title="a^{p-1} \equiv 1 (mod n)" /></a>
+   Replace 1 mod n from equiuation 1  
+<a href="https://www.codecogs.com/eqnedit.php?latex=a^{p-1}&space;\equiv&space;a&space;.&space;x" target="_blank"><img src="https://latex.codecogs.com/gif.latex?a^{p-1}&space;\equiv&space;a&space;.&space;x" title="a^{p-1} \equiv a . x" /></a>  
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=x&space;=&space;a^{p-2}&space;\rightarrow&space;x&space;=a&space;^{(\phi&space;(p)-1)}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x&space;=&space;a^{p-2}&space;\rightarrow&space;x&space;=a&space;^{(\phi&space;(p)-1)}" title="x = a^{p-2} \rightarrow x =a ^{(\phi (p)-1)}" /></a>
+
+If n is not prime we can use Extended Euclidean Algorithm to find it out.  
+Example  
+11 .x = 1 mod 26  
+Since 26 is not prime we will use Extended Eucleadean Algorithm to represent their GCD(11, 26) in some linear form  
+
+26 = 11 * 2 + 4  
+11 = 4 *  2 + 3  
+4  = 3 * 1  + 1  
+3  = 1 * 3  + 0  
+Regargging these equation  
+
+1 = 26 * 3 - 7 * 11 this is linear arangement in terms of inputs  
+Now do mod 26 , which will divide 26 * 3 completely and no remainder left and we get  
+1 mod 26 = -7 * 11 , hence -7 is one such inverse  
+In mod -7 mod 26 is same as 19 mod 26 , so **19** is another inverse.
+
+**11 * 19 = 1 mod 26**
+
+
+
 
 ## Chinese Remainder Theorem
 Smallest number which when divided by x, y, z leaves remainder a, b, c
