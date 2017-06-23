@@ -280,3 +280,5 @@ https://www.whatsapp.com/security/WhatsApp-Security-Whitepaper.pdf
 
 ## Useful Links
 https://freedom-to-tinker.com/2011/03/30/building-better-ca-infrastructure/
+https://tools.ietf.org/html/rfc7457
+
