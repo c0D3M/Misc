@@ -38,13 +38,25 @@ This problem is known as  [discrete lograthimic problem](https://en.wikipedia.or
 
 ## RSA
 - Take two prime number p and q
-- multiply it to get n = pq
-- choose any number 1 < e < lcm(p-1, q-1)
-- d is modular multiplixative inverse of e mod lcm(p-1, q-1)
+- multiply it to get n = pq  
+- choose any number 1 < e < E(n) [Euler Totient function (n) = p-1 * q-1]  
+- d is modular multiplixative inverse of e mod E(n)  
 - (d,n) is private key and (e, n) is public key
 Here the trapdoor function (easy in one way , difficult in other) is factoring of n, multiplication of p and q are easy.  
 https://security.stackexchange.com/questions/20803/how-does-ssl-tls-work
+We know __n__ but in order to find __d__ one has to find __Modular Multiplicative Inverse__ of __e__ and __E(n)__  
+Remmeber that E(n) is Euler Totient function which is __p-1 * q-1__ to find E(n) one has to __factor__ n.  
+That is **Integer Factorization problem**  
+**RSA Problem**: Finding the eth root of C = M<sup>e</sup> (mod n), to determine M from C one has to find eth root of C  mod n.  
+Text book RSA is **CCA insecure**  
+- Suppose we have cipher text C<sub>x</sub>  
+- Now I have plain text P<sub>y</sub> it's cipher text would C<sub>y</sub> = P<sub>y</sub> <sup>e</sup> mod p  
+- Multiply C<sub>x</sub> * C<sub>y</sub> and send to decryption oracle.  
+- Decryption code will successfully decrypt and return the result and that result we know is combination of P<sub>x</sub> P<sub>y</sub> 
 
+If **e** is chosen very small like 3, deriving **eth root** is relatively easy.
+
+To avoid all the above issue , RSA is used with padding  
 
 ## Perfect Forward Secrecy
 Its a feature where if private key is comprmised, sesson keys (symemtric keys for encryption and HMAC) will not be compromised.  
