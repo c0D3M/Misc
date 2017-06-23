@@ -1,12 +1,14 @@
 ## Discrete Logarithm Problem
-Fix a group G and a generator element *g* from that group.<br />
-Any element *h* from **subgroup of G**<br />
-Fin *m* such that *h = g<sup>m</sup>* <br />
+Fix a group G and a generator element *g* from that group.  
+Any element *h* from **subgroup of G**  
+Find *m* such that *h = g<sup>m</sup>*  
  *m= log <sub>g</sub> h*<br /> [This is continiuos log]
- Complexity of the solution depends on chosen **group**.<br />
- For some group its easy, example **Z/mZ group under binary operation addition** (Z/mZ is the set of integers mod m )<br />
- **Z<sub>p</sub><sup>*</sup> group under multiplication** problem is tough to solve for some large prime and used in DH .<br />
- Some places **Z<sub>p</sub><sup>*</sup>** is also written as **F<sub>p</sub><sup>*</sup>** <br/>
+ Complexity of the solution depends on chosen **group**.  
+ For some group its easy, example **Z/mZ group under binary operation addition** (Z/mZ is the set of integers mod m )  
+ **Z<sub>p</sub><sup>*</sup> group under multiplication** problem is tough to solve for some large prime and used in DH.  
+ Some places **Z<sub>p</sub><sup>*</sup>** is also written as **F<sub>p</sub><sup>*</sup>**  
+*g<sup>a</sup> = k (mod n)*  
+Solving for __a__ when we know (g, k, p) is computationally dificult.  
 
 ## Primitive root modulo n
 3 is a primitive root of 7 , meaning when raised to any power between [1,6] mod 7 , result is some order of [1,6].<br />
@@ -14,9 +16,6 @@ The powers of 3, reduced modulo 7, are 3, 2, 6, 4, 5, 1, so we does get everythi
 
 Note that after g<sup>p-1</sup> the power starts all over <br />
 Fermat's little theorem  g<sup>p-1</sup> ≡ 1 mod p , g<sup>p</sup> = g<sup>p-1</sup> . g<sup>1</sup> <br />
-
-a is called __discrete logarithm__ of of A with respect to __primitive root__ g and computing for __a__ is comoutationally harder.<br />
-However given g,a,p one can find __A__. See [link](https://en.wikipedia.org/wiki/Modular_exponentiation) <br />
 
 ## Diffie-Hellman 
 A method to securely exchange cyptographic keys over a public network.
