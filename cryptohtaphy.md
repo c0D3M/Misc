@@ -252,14 +252,40 @@ One can mix-and-match {NM, IND} and {CPA, CCA1, CCA2} in any combination.
 
 https://crypto.stackexchange.com/questions/26689/easy-explanation-of-ind-security-notions
 
-
-
-
 ## ElGamal
 Based on DH, 
 in short Shared key is used for encryption and receiver used multiplicate invserve of shared key to decrypt  
 This is not CCA secure, reason is if you multiplying a cipher text of a known plain text to a cipher and ask decryption oracle,
 it cant deny and then then plain text can be extrcated  
+## KDF (Key Derivation Function)
+Derives one or more ceret keys from master secret 
+For example converting Deffie Hellman element into symetric keys for usage in AES, HMAC  
+HMAC-based-KDF is used now-a-days
+## X3DH
+This kind of Key-Exchange algorithm is used where one party can be offline  
+Here we have __Alice__ __Bob__ and __Server__  
+Alice want to exchange some message with Bob but he can be offline  
+Bob publish his identity with server  
+- Long term identty key __IK<sub>B</sub>__
+- Signed Pre Key __SPK<sub>B</sub>__
+- PreKey Signed signed with __IK<sub>B</sub>__
+- A set of One time pre-keys OTP<sub>B</sub><sup>1</sup> OTP<sub>B</sub><sup>1</sup>
+
+If the bundle does not contain a one-time prekey, she calculates:
+DH1 = DH(IKA, SPKB)  
+DH2 = DH(EKA, IKB)  
+DH3 = DH(EKA, SPKB)  
+SK = KDF(DH1 || DH2 || DH3)  
+If OTP present then:  
+DH4 = DH(EKA, OPKB)  
+SK = KDF(DH1 || DH2 || DH3 || DH4)  
+https://whispersystems.org/docs/specifications/x3dh/x3dh.pdf  
+
+Then Alice sends its own __IK<sub>A</sub>__  __EK<sub>A</sub>__ identifier for which OTP is used  
+Bob also calculate same way SK.  
+SK can be used directly or can be fed to some other KDF algorithm like Double Ratchet.  
+
+## Double Ratchet Algorithm
 
 ### Cryptographic Usage
 
