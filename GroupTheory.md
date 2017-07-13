@@ -85,6 +85,7 @@ Example:
 2. f is onto mapping i.e. no elelmenbt in G' is not left without mapping from G.
 3. f is homomorphism i.e.<br />
    f(a o b) = f(a) o' f(b)<br />
+Note that 1 & 2 together called bijective  
 
 Example:<br />
 G= (I, +)<br />
