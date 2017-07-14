@@ -138,6 +138,35 @@ MAC using exchanged MAC keys and if they mismatch we wont decrypt at all
 ## Stream Cipher
 
 ## Block Ciphers
+*n bits* of plain text to *n bits* of output using a Key of *k bits*  
+n = 64, k=168 bits is 3 DES  
+n = 128, k= 128, 192, 256 bits  is AES  
+Key k is expanded in k1, k2, kn
+and then used with Round function R(m, K1) and then its output is again used round function R(R(m, K1) , k2) and so on 
+3DES we have 48 round and AES we haev 10 round  
+### Pseudo Random Function (PRF)  
+Defined over (K, X, Y)  
+F: K x X -> Y  
+such that their exist efficient algorithm to compute F(x, k)
+### Pseudo Random Permutation (PRP)  
+E: K * X -> X  
+One to one mapping  
+Because its one to one it can be invesrtible also D(k, y)  
+For AES we know K =128 and X =128 so total possible Function mapping would be 2<sup>128<sup>2<sup>128</sup></sup></sup>  
+F = 2<sup>128<sup>2<sup>128</sup></sup></sup>  
+S<sub>F</sub> = 2<sup>128</sup> Key k is fixed  
+
+PRF is secure if from pseudo random function X to Y[set S<sub>F</sub>] is indistinguishable from radom function[from set F].  
+
+### DES
+Input is divided into R and L , and at each rounding stage 
+R<sub>i</sub> = F(L<sub>i-1</sub>) XOR R<sub>i</sub>  
+L<sub>i</sub> = R<sub>i-1</sub>  
+This is known as Fiestel network
+whatever F you give it will be invertible(used in decryption logic)  
+DES uses 16 round in its Fiestel network.
+
+
 ### ECB Mode
 PT is divided in block and XOR with key  
 Disadvantage of this method is same block of plain text will result in same block of ciphertext thus no pseudorandomness in cihper text.  
