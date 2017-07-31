@@ -34,6 +34,9 @@ __Ordering__ doesnt change result.
 An eavesdropper to find **a** has to solve <br />
 __g<sup>a</sup> ≡ A (mod p)__
 This problem is known as  [discrete lograthimic problem](https://en.wikipedia.org/wiki/Discrete_logarithm)<br />
+a = __private key__  
+(g<sup>a</sup> mod p , g, p ) is __public key__
+g<sup>__ab__</sup> mod p is __shared secret__  
 
 
 ## RSA
@@ -289,7 +292,8 @@ it cant deny and then then plain text can be extrcated
 ## KDF (Key Derivation Function)
 Derives one or more ceret keys from master secret 
 For example converting Deffie Hellman element into symetric keys for usage in AES, HMAC  
-HMAC-based-KDF is used now-a-days
+HMAC-based-KDF is used now-a-days works as eextract-than-expand http://www.ietf.org/rfc/rfc5869.txt  
+
 ## X3DH
 This kind of Key-Exchange algorithm is used where one party can be offline  
 Here we have __Alice__ __Bob__ and __Server__  
@@ -315,6 +319,24 @@ Bob also calculate same way SK.
 SK can be used directly or can be fed to some other KDF algorithm like Double Ratchet.  
 
 ## Double Ratchet Algorithm
+
+Each party has root chain, sender chain, receiver chain  
+Alice sender chain matches Bob's receover chain and vice versa  
+When Alice and Box exchange encrypted message, they also exchange fresh set of DH values  
+Shared secret derived from DH become input to the __root chain__.  
+Output of __root chain__ will become new KDF keys for sending and receiving chain.  
+This is called __Deffie Hellman Ratchet__  
+![DH Ratchet](https://whispersystems.org/docs/specifications/doubleratchet/Set1_1.png)
+
+Keys are derived from these chains and used to encrypt message. This is knows as __symmetric key ratchet__  
+
+Suppose Alice wanted to send a message to Bob  
+Using symmetric key ratchet, get the message key and using that encrypt the message. This message key can be discarded now  
+Generate a new DH pair and send public key in header
+
+When Bob receives, it first perform DH racthet to get the shared secret, which the fed to root chain  
+Output of root chain is fed to receiving key and then the message key is used to decrypt message  
+
 
 ### Cryptographic Usage
 
