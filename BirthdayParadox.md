@@ -39,9 +39,28 @@ This would be 365 * 364 * 363 .... (365 - (n-1)) / 365^n
 
 2. 1 pair of people share a birthday and then n-2 people have different birthday.  
 
-Number of ways 1 pair of people can be chosen out of **__n people__** = nC<sub>2</sub> and this pair can take any of 365 days.  
-Now ways of n-2 people have different birthday   = 364 * 363 * ......[364 - (n-2)] / 365^ n-2 = P(364, n-1) / 365^n-2
+Number of ways 1 pair of people can be chosen out of **__n people__** = nC<sub>2</sub> and this pair can take any of 365 days, Probability = 365/ 365^2   
+Now ways of n-2 people have different birthday   = 364 * 363 * ......[364 - (n-2)] / 365^ n-2 = P(365-1, n-2) / 365^n-2  
+
+P_N(1) = 365 * nC<sub>2</sub> * P(365-1, n-2) / 365^n  
+
+3. 2 pair of people share a birthday and then n-4 people have different birhday.  
+
+- Number of ways 1st pair can be chosen  = nC<sub>2</sub>
+- Number of ways 2nd pair can be chosen  
+    We have now n-2 people, hence n-2C<sub>2</sub>  
+- Number of ways 2 birthday can be chosen for above 2 pairs would be 365C<sub>2</sub>  
+- Now we have n-4 people left = 363, 362, .....365-(n-4) = P(365-2, N-4)  
+P_N(2) = nC<sub>2</sub> * n-2C<sub>2</sub> * 365C<sub>2</sub> * P(365-2, n-4)  
 
 
+Generalizing for all the maximum 2 pair possible which is n/2  
+This is for all the 'k' pairs nC<sub>2</sub> * n-2C<sub>2</sub> * (n-2k+1)C<sub>2</sub>  
+Now for choosing 'k' birthdays for above k pairs = 365C<sub>k</sub>  
+Next the left overs can choose 365-k birthdays = P(365-k, N-2k) ways  
+
+Multiplying all of the above and cancelling denominator to numerator  
+
+P_N(K) = C(365,K) * P(N,2K) * P(365-K,N-2K)/(2^K * 365^N)  
 
 
