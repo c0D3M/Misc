@@ -35,14 +35,16 @@ n+1. n/2 pair of people share a birthday.
 So essentially we have to sum all the above possible ways  
 1. All 'n' people have different birthday  
 This would be 365 * 364 * 363 .... (365 - (n-1)) / 365^n  
-365 * 364 * 363 .... (365 - (n-1)) can be termed as P(365, n)  which is actually 365C<sub>n</sub>  * n!
+365 * 364 * 363 .... (365 - (n-1)) can be termed as P(365, n)  which is actually 365C<sub>n</sub>  * n!  
+
+**P_N(0) = P(365, n) / 365^n**  
 
 2. 1 pair of people share a birthday and then n-2 people have different birthday.  
 
 Number of ways 1 pair of people can be chosen out of **__n people__** = nC<sub>2</sub> and this pair can take any of 365 days, Probability = 365/ 365^2   
 Now ways of n-2 people have different birthday   = 364 * 363 * ......[364 - (n-2)] / 365^ n-2 = P(365-1, n-2) / 365^n-2  
 
-P_N(1) = 365 * nC<sub>2</sub> * P(365-1, n-2) / 365^n  
+**P_N(1) = 365 * nC<sub>2</sub> * P(365-1, n-2) / 365^n**  
 
 3. 2 pair of people share a birthday and then n-4 people have different birhday.  
 
@@ -51,7 +53,7 @@ P_N(1) = 365 * nC<sub>2</sub> * P(365-1, n-2) / 365^n
     We have now n-2 people, hence n-2C<sub>2</sub>  
 - Number of ways 2 birthday can be chosen for above 2 pairs would be 365C<sub>2</sub>  
 - Now we have n-4 people left = 363, 362, .....365-(n-4) = P(365-2, N-4)  
-P_N(2) = nC<sub>2</sub> * n-2C<sub>2</sub> * 365C<sub>2</sub> * P(365-2, n-4)  
+**P_N(2) = nC<sub>2</sub> * n-2C<sub>2</sub> * 365C<sub>2</sub> * P(365-2, n-4)**  
 
 
 Generalizing for all the maximum 2 pair possible which is n/2  
@@ -61,6 +63,8 @@ Next the left overs can choose 365-k birthdays = P(365-k, N-2k) ways
 
 Multiplying all of the above and cancelling denominator to numerator  
 
-P_N(K) = C(365,K) * P(N,2K) * P(365-K,N-2K)/(2^K * 365^N)  
+**P_N(K) = C(365,K) * P(N,2K) * P(365-K,N-2K)/(2^K * 365^N)**    
 
+So essentially we have to sum up P_N(K) from K=1 to n/2(Case #2 to Case #1+n/2)  and also when all N people have diff birthday (Case #1)    
+<a href="https://www.codecogs.com/eqnedit.php?latex=\sum_{1}^{n/2}&space;C(365,K)&space;*&space;P(N,2K)&space;*&space;P(365-K,N-2K)/(2^K&space;*&space;365^N)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum_{1}^{n/2}&space;C(365,K)&space;*&space;P(N,2K)&space;*&space;P(365-K,N-2K)/(2^K&space;*&space;365^N)" title="\sum_{1}^{n/2} C(365,K) * P(N,2K) * P(365-K,N-2K)/(2^K * 365^N)" /></a>  
 
