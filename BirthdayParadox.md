@@ -70,3 +70,7 @@ Case # 1 i.e. P_N(0) can also be obtained by putting k=0 in this equation.
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=\sum_{0}^{n/2}&space;C(365,K)&space;*&space;P(N,2K)&space;*&space;P(365-K,N-2K)/(2^K&space;*&space;365^N)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum_{0}^{n/2}&space;C(365,K)&space;*&space;P(N,2K)&space;*&space;P(365-K,N-2K)/(2^K&space;*&space;365^N)" title="\sum_{0}^{n/2} C(365,K) * P(N,2K) * P(365-K,N-2K)/(2^K * 365^N)" /></a>     
 
+## Birthday Problem Generalization
+
+Here we will try to generalize the problem i.e.  __*M*__  can share same birthday.
+So we start with first gorup of 2 people and then 3 people and upto M-1 people.
