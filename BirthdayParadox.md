@@ -68,5 +68,5 @@ Multiplying all of the above and cancelling denominator to numerator
 So essentially we have to sum up P_N(K) from K=0 to n/2(Case #2 to Case #1+n/2)  
 Case # 1 i.e. P_N(0) can also be obtained by putting k=0 in this equation.
 
-<a href="https://www.codecogs.com/eqnedit.php?latex=\sum_{1}^{n/2}&space;C(365,K)&space;*&space;P(N,2K)&space;*&space;P(365-K,N-2K)/(2^K&space;*&space;365^N)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum_{1}^{n/2}&space;C(365,K)&space;*&space;P(N,2K)&space;*&space;P(365-K,N-2K)/(2^K&space;*&space;365^N)" title="\sum_{1}^{n/2} C(365,K) * P(N,2K) * P(365-K,N-2K)/(2^K * 365^N)" /></a>  
+<a href="https://www.codecogs.com/eqnedit.php?latex=\sum_{0}^{n/2}&space;C(365,K)&space;*&space;P(N,2K)&space;*&space;P(365-K,N-2K)/(2^K&space;*&space;365^N)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum_{0}^{n/2}&space;C(365,K)&space;*&space;P(N,2K)&space;*&space;P(365-K,N-2K)/(2^K&space;*&space;365^N)" title="\sum_{0}^{n/2} C(365,K) * P(N,2K) * P(365-K,N-2K)/(2^K * 365^N)" /></a>    
 
