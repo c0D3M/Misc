@@ -72,8 +72,7 @@ Case # 1 i.e. P_N(0) can also be obtained by putting k=0 in this equation.
 
 This can be further simplified as, advantage is we get rid of Combinatorial and we get rid of denominator.  
 
-<a href="https://www.codecogs.com/eqnedit.php?latex=\sum_{K=0}^{n/2}&space;P(N,2K)&space;*&space;P(365,N-K)/((2!)^K&space;*&space;365^N&space;*&space;K!)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum_{K=0}^{n/2}&space;P(N,2K)&space;*&space;P(365,N-K)/((2!)^K&space;*&space;365^N&space;*&space;K!)" title="\sum_{K=0}^{n/2} P(N,2K) * P(365,N-K)/((2!)^K * 365^N * K!)" /></a>  
-
+<a href="https://www.codecogs.com/eqnedit.php?latex=\sum_{i=0}^{n/2}&space;P(N,2i)&space;*&space;P(365,N-i)/((2!)^i&space;*&space;365^N&space;*&space;i!)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum_{i=0}^{n/2}&space;P(N,2i)&space;*&space;P(365,N-i)/((2!)^i&space;*&space;365^N&space;*&space;i!)" title="\sum_{i=0}^{n/2} P(N,2i) * P(365,N-i)/((2!)^i * 365^N * i!)" /></a>  
 
 ## Birthday Problem Generalization
 
