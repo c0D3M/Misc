@@ -68,7 +68,7 @@ Multiplying all of the above and cancelling denominator to numerator
 So essentially we have to sum up P_N(K) from K=0 to n/2(Case #2 to Case #1+n/2)  
 Case # 1 i.e. P_N(0) can also be obtained by putting k=0 in this equation.  
 
-<a href="https://www.codecogs.com/eqnedit.php?latex=\sum_{K=0}^{n/2}&space;C(365,K)&space;*&space;P(N,2K)&space;*&space;P(365-K,N-2K)/((2!)^K&space;*&space;365^N)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum_{K=0}^{n/2}&space;C(365,K)&space;*&space;P(N,2K)&space;*&space;P(365-K,N-2K)/((2!)^K&space;*&space;365^N)" title="\sum_{K=0}^{n/2} C(365,K) * P(N,2K) * P(365-K,N-2K)/((2!)^K * 365^N)" /></a>  
+<a href="https://www.codecogs.com/eqnedit.php?latex=\sum_{i=0}^{n/2}&space;C(365,i)&space;*&space;P(N,2i)&space;*&space;P(365-i,N-2i)/((2!)^i&space;*&space;365^N)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum_{i=0}^{n/2}&space;C(365,i)&space;*&space;P(N,2i)&space;*&space;P(365-i,N-2i)/((2!)^i&space;*&space;365^N)" title="\sum_{i=0}^{n/2} C(365,i) * P(N,2i) * P(365-i,N-2i)/((2!)^i * 365^N)" /></a>  
 
 This can be further simplified as, advantage is we get rid of Combinatorial and we get rid of denominator.  
 
