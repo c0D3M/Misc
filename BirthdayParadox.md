@@ -63,7 +63,7 @@ Next the left overs can choose 365-k birthdays = P(365-k, N-2k) ways
 
 Multiplying all of the above and cancelling denominator to numerator  
 
-**P_N(K) = C(365,K) * P(N,2K) * P(365-K,N-2K)/(2^K * 365^N)**    
+**P_N(K) = C(365,K) * P(N,2K) * P(365-K,N-2K)/((2!)^K * 365^N)**    
 
 So essentially we have to sum up P_N(K) from K=0 to n/2(Case #2 to Case #1+n/2)  
 Case # 1 i.e. P_N(0) can also be obtained by putting k=0 in this equation.  
