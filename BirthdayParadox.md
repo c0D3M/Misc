@@ -68,7 +68,12 @@ Multiplying all of the above and cancelling denominator to numerator
 So essentially we have to sum up P_N(K) from K=0 to n/2(Case #2 to Case #1+n/2)  
 Case # 1 i.e. P_N(0) can also be obtained by putting k=0 in this equation.  
 
-<a href="https://www.codecogs.com/eqnedit.php?latex=\sum_{K=0}^{n/2}&space;C(365,K)&space;*&space;P(N,2K)&space;*&space;P(365-K,N-2K)/((2!)^K&space;*&space;365^N)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum_{K=0}^{n/2}&space;C(365,K)&space;*&space;P(N,2K)&space;*&space;P(365-K,N-2K)/((2!)^K&space;*&space;365^N)" title="\sum_{K=0}^{n/2} C(365,K) * P(N,2K) * P(365-K,N-2K)/((2!)^K * 365^N)" /></a>         
+<a href="https://www.codecogs.com/eqnedit.php?latex=\sum_{K=0}^{n/2}&space;C(365,K)&space;*&space;P(N,2K)&space;*&space;P(365-K,N-2K)/((2!)^K&space;*&space;365^N)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum_{K=0}^{n/2}&space;C(365,K)&space;*&space;P(N,2K)&space;*&space;P(365-K,N-2K)/((2!)^K&space;*&space;365^N)" title="\sum_{K=0}^{n/2} C(365,K) * P(N,2K) * P(365-K,N-2K)/((2!)^K * 365^N)" /></a>  
+
+This can be further simplified as, advantage is we get rid of Combinatorial and we get rid of denominator.  
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\sum_{K=0}^{n/2}&space;P(N,2K)&space;*&space;P(365,N-K)/((2!)^K&space;*&space;365^N&space;*&space;K!)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum_{K=0}^{n/2}&space;P(N,2K)&space;*&space;P(365,N-K)/((2!)^K&space;*&space;365^N&space;*&space;K!)" title="\sum_{K=0}^{n/2} P(N,2K) * P(365,N-K)/((2!)^K * 365^N * K!)" /></a>  
+
 
 ## Birthday Problem Generalization
 
@@ -79,5 +84,5 @@ and to have *no collssion*, grouping of people has to start with 2 or more is ne
 Why __M-1__: because we are calcuating no collision, if we take all M people there will be collision, hence M-1.  
 So for each group size we have to evaluate all possible grouping.  
 
-P(no_collission) = <a href="https://www.codecogs.com/eqnedit.php?latex=\sum_{k=2}^{M-1}&space;\sum_{i=0}^{n/k}&space;C(365,i)&space;*&space;P(N,ki)&space;*&space;P(365-i,N-ki)/((k!)^i&space;*&space;365^N)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum_{k=2}^{M-1}&space;\sum_{i=0}^{n/k}&space;C(365,i)&space;*&space;P(N,ki)&space;*&space;P(365-i,N-ki)/((k!)^i&space;*&space;365^N)" title="\sum_{k=2}^{M-1} \sum_{i=0}^{n/k} C(365,i) * P(N,ki) * P(365-i,N-ki)/((k!)^i * 365^N)" /></a>  
+P(no_collission) = <a href="https://www.codecogs.com/eqnedit.php?latex=\sum_{k=2}^{M-1}&space;\sum_{i=0}^{n/k}&space;P(N,ki)&space;*&space;P(365,N-i)/((k!)^i&space;*&space;365^N&space;*&space;i!)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum_{k=2}^{M-1}&space;\sum_{i=0}^{n/k}&space;P(N,ki)&space;*&space;P(365,N-i)/((k!)^i&space;*&space;365^N&space;*&space;i!)" title="\sum_{k=2}^{M-1} \sum_{i=0}^{n/k} P(N,ki) * P(365,N-i)/((k!)^i * 365^N * i!)" /></a>    
 
