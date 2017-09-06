@@ -72,5 +72,12 @@ Case # 1 i.e. P_N(0) can also be obtained by putting k=0 in this equation.
 
 ## Birthday Problem Generalization
 
-Here we will try to generalize the problem i.e.  __*M*__  can share same birthday.
-So we start with first gorup of 2 people and then 3 people and upto M-1 people.
+Here we will try to generalize the problem i.e.  __*M*__  can share same birthday.  
+So we start with first gorup of 2 people, 3 people ... and upto M-1 people.  
+Why 2, because we are calculating  *P(no_collission)* and then subrract from 1 which give *P(collission)*
+and to have *no collssion*, grouping of people has to start with 2 or more is necessary.    
+Why __M-1__: because we are calcuating no collision, if we take all M people there will be collision, hence M-1.  
+So for each group size we have to evaluate all possible grouping.  
+
+P(no_collission) = <a href="https://www.codecogs.com/eqnedit.php?latex=\sum_{k=2}^{M-1}&space;\sum_{i=0}^{n/k}&space;C(365,i)&space;*&space;P(N,ki)&space;*&space;P(365-i,N-ki)/((k!)^i&space;*&space;365^N)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum_{k=2}^{M-1}&space;\sum_{i=0}^{n/k}&space;C(365,i)&space;*&space;P(N,ki)&space;*&space;P(365-i,N-ki)/((k!)^i&space;*&space;365^N)" title="\sum_{k=2}^{M-1} \sum_{i=0}^{n/k} C(365,i) * P(N,ki) * P(365-i,N-ki)/((k!)^i * 365^N)" /></a>  
+
