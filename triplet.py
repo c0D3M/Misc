@@ -1,4 +1,7 @@
 import math
+from decimal import Decimal
+from decimal import getcontext
+getcontext().prec = 50
 def permute(a , b):
 	if(b==0 or a==b):
 		return 1
@@ -10,13 +13,13 @@ def permute(a , b):
 	return val;
 
 def combi(n, r):
-	return permute(n, r) / math.factorial(r)
+	return permute(n, r) / Decimal(math.factorial(r))
 	
 #print permute(365, 10)
 
-M = 3 # input..basically how many people can share birthday
+M =1 # input..basically how many people can share birthday
 P = 0 # probability
-N = 20 # Number of people, starts a loop, keep adding people 1-by-1 and calculate probability 
+N = 1 # Number of people, starts a loop, keep adding people 1-by-1 and calculate probability 
 k = 2 # Group size ..starts from 2 upto M-1
 '''
 n = number of people
@@ -36,11 +39,12 @@ def computeProb(n, d, k):
 				Rest people will again can be choosen in similar way , recurrence 
 	'''
 	if(k==1):
-		return permute(d, n) / math.pow(d, n)
+		t = Decimal(math.pow(d, n/4))
+		return Decimal(permute(d, n)) / t/t/t/t
 	
 	X = 0
 	for i in range(1, 1+int(math.floor(n/k))):
-		p = combi(d, i) *  permute(n, i*k) / math.pow(math.factorial(k), i) / math.pow(d, i*k)
+		p = Decimal(combi(d, i))  / Decimal(math.pow(Decimal(math.factorial(k)), i))  *  Decimal(permute(n, i*k))
 		#Now we are left with n -ik people, d-i days which can again we recursively calcualated
 		q = 0
 		for j in range(1, k):
@@ -49,16 +53,19 @@ def computeProb(n, d, k):
 			#print ("return recursive %0.2f" %q)
 		if(q==0):
 			q = 1;
-		r = math.pow (d-i, n-i*k) / math.pow(d, n-i*k)
+		r1 =Decimal(math.pow (d-i, (n-i*k)/4))
+		r2 =Decimal(math.pow(d, n/4))
+		r = (r1/r2/r2/r2/r2)*r1 *r1*r1
 		X = X + (p*q*r)
 		#print ("i=%0.2f p=%0.2f q=%0.2f r=%0.2f X=%0.2f ff=%0.2f" %(i, p, q, r, X, (p*q*r)))
 	return X
 while True:
-	print ("M = %d N=%d" %(M, N))
+	#print ("M = %d N=%d" %(M, N))
 	P =0
 	for i in range(1, M):
 		P = P + computeProb(N, 365, i);
-		print ("N=%d P=%0.2f" %(N, P))
+		#print ("N=%d P=%0.2f" %(N, P))
 	if(P<=0.5):
 		break
-	N = N+1	
+	N = N+1
+print N	
