@@ -86,5 +86,7 @@ So for each group size we have to evaluate all possible grouping.
 P(no_collission) = <a href="https://www.codecogs.com/eqnedit.php?latex=\sum_{k=2}^{M-1}&space;\sum_{i=0}^{n/k}&space;P(N,ki)&space;*&space;P(365,N-i)/((k!)^i&space;*&space;365^N&space;*&space;i!)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum_{k=2}^{M-1}&space;\sum_{i=0}^{n/k}&space;P(N,ki)&space;*&space;P(365,N-i)/((k!)^i&space;*&space;365^N&space;*&space;i!)" title="\sum_{k=2}^{M-1} \sum_{i=0}^{n/k} P(N,ki) * P(365,N-i)/((k!)^i * 365^N * i!)" /></a>    
 
 ## References
-- https://math.stackexchange.com/questions/25876/probability-of-3-people-in-a-room-of-30-having-the-same-birthday/601988#601988
-- http://mathforum.org/library/drmath/view/56650.html
+- https://math.stackexchange.com/questions/25876/probability-of-3-people-in-a-room-of-30-having-the-same-birthday/601988#601988 [Wrong Generalized Forumla]
+- http://mathforum.org/library/drmath/view/56650.html [Does work for M=3]
+- http://oeis.org/A014088 
+- http://mathworld.wolfram.com/BirthdayProblem.html
