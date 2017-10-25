@@ -39,7 +39,7 @@ After each step move q -> LHS and r in place of q, do this until we get remainde
 ## Extended Euclidean Algorithm
 Idea is to represent the GCD in the linear form of the number  
 For example  
-__3 = 376 * x + 1701 * y__ [where x and y are Integers]  
+__3 = 3768 * x + 1701 * y__ [where x and y are Integers]  
 We can traverse backward  
 from 6 we get 3 = 108 - (21 * 5)  
 from 5 we know 21 =  129 - (108 * 1)   3 = 108 - [5 * (129 - 108)]           =>  3 = 6 * 108 - 5 * 129  
