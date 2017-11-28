@@ -367,6 +367,6 @@ http://www.coindesk.com/information/what-is-bitcoin/
 https://www.whatsapp.com/security/WhatsApp-Security-Whitepaper.pdf  
 
 ## Useful Links
-https://freedom-to-tinker.com/2011/03/30/building-better-ca-infrastructure/
-https://tools.ietf.org/html/rfc7457
-
+https://freedom-to-tinker.com/2011/03/30/building-better-ca-infrastructure/  
+[List of All Attacks] https://tools.ietf.org/html/rfc7457  
+Recommendation https://tools.ietf.org/html/rfc7525  
