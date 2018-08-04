@@ -67,3 +67,36 @@ And then we can use gcd way of calculating factors
 
 In Dixon method, we have to keep looking for a's for which b's exponent can be perfect square  
 
+### Quadratic reside
+q is said to be quadratic residue , if it congurent to perfect square modulo n  
+*x<sup>2</sup>* ≡  *q*  mod *p*  
+
+For p =2, every integer is quadratic residue, because either it will divisible or will have remainder 1  
+For exampple 7<sup>2</sup> ≡ 1 mod 2  
+
+For p =5 , quadratic residues are **1**, 2, 3, **4** (residue in **bold**)  
+
+If p is prime , there will be **(p-1)/2** quadratic residues  
+p = 5  
+
+1<sup>2</sup> ≡ 1 mod 5  
+2<sup>2</sup> ≡ 4 mod 5  
+3<sup>2</sup> ≡ 4 mod 5  
+4<sup>2</sup> ≡ 1 mod 5  
+
+### Euler Criteria
+For a given *a* and odd prime *p*, then  
+![](https://wikimedia.org/api/rest_v1/media/math/render/svg/f91057ce9d4d7a48280406d44f52d6417950b43f)  
+
+Example p =5  
+For a = 1 ; 1 <sup> 5-1/2</sup> ≡ 1 mod 5=> ≡  1 mod 5, then a=1 is quadratic **residue**.  
+For a = 2 ; 2 <sup> 5-1/2</sup> ≡ 4 mod 5=> ≡ -1 mod 5, then a=2 is quadratic **non-residue**.  
+For a = 3 ; 3 <sup> 5-1/2</sup> ≡ 4 mod 5=> ≡ -1 mod 5, then a=3 is quadratic **non-residue**.  
+For a = 4 ; 4 <sup> 5-1/2</sup> ≡ 16 mod 5=> = 1 mod 5, then a=4 is quadratic **residue**.  
+
+
+
+
+
+
+
