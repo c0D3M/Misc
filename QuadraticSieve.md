@@ -1,6 +1,13 @@
 We will discuss various ways to factorize a given number **N**.
 
-## Difference of Square Method
+## Congurence
+*a* & *b* are said congurenet modulo *n* , when a and b have same remainder when divided by n.    
+![](https://wikimedia.org/api/rest_v1/media/math/render/svg/fbb66ad4d03232b185b3dd6a6ee293943f21f786)  
+Example a= 37 , b = 57 n =10  
+![](https://wikimedia.org/api/rest_v1/media/math/render/svg/2597d68becb3448bb118defd783d20f82d182aee)  
+Alternatively, *a*-*b* is dibisible by *n*
+
+## Congurence of Square Method
 If this method, we will try to find two numbers **b** and **b**  , whose difference of square is N i.e. <br />
 **a<sup>2</sup>** - **b<sup>2</sup>** = **N**
 
@@ -23,9 +30,9 @@ Starting a= 301 , we keep looking whether a<sup>2</sup> - N is a perfect square 
 
 a | a<sup>2</sup> - N| b
 ------|-------|--------
-301| 318 | NO
-302| 921 | NO
-303| 1526| NO
+301| 318 | no
+302| 921 | no
+303| 1526| no
 398| 68121| Perfect Square(261)
 
 a= 398 b = 261 and a<sup>2</sup> -b<sup>2</sup> = N <br />
@@ -35,17 +42,28 @@ As you see we did found **b**  but we have to iterate very long.<br />
 
 ## Dixon Factorization method
 
-The main idea is instead of looking for **b** which is a perfect square we tried to find multiple **bi**  which has factor to a choose base **B**.<br />
-Next combine those **bi** whose **sum of exponent is even** and that will give us our **b**.<br />
-Let's explain all this with example.<br />
+Let's try to factorize 
+N = 84923 
+As per difference of square method, we have to start with √N i.e. 292 and keep counting up until a<sup>2</sup> -N is perfect square  
+Our search ends at a = 505 !  b = 16 i.e. 505<sup>2</sup> - 85923 = 16<sup>2</sup>  
+GCD(505-16, 85923) = 163, other factor would be 521  
 
-N = 84923  and we choose factor base of B = {2, 3, 5, 7} , Factor base means while b such that it cna be expressed in this factor base.
+The main idea is instead of looking for **b** which is a perfect square we tried to find multiple **bi**  which has factor to a choose base **B**.  
+Next combine those **bi** whose **sum of exponent is even** and that will give us our **b**.<br />
+Let's explain all this with example.  
+
+N = 84923  and we choose factor base of B = {2, 3, 5, 7} , Factor base means while b such that it can be expressed in this factor base.
 
 lets choose a = 513     b<sup>2</sup> = a<sup>2</sup> mod N = (513) mod 84923 = 8400 = 2<sup>4</sup>  . 3 . 5<sup>2</sup> .7
 537 <sup>2</sup> mod 84923 = 33600 =  2<sup>6</sup>  . 3 . 5<sup>2</sup> .7
 
-if we select these two a , exponent of b is even i.e. 
+if we select these **two** a , exponent of **b is even** i.e. 
 (513 . 537 )<sup>2</sup> mod 84923 = (2<sup>5</sup>  . 3 . 5<sup>2</sup> .7)<sup>2</sup>
 
+One simplication can we done i.e. 513.537 can we written as 84923 * 3 + 20712, so instead of using 513.537 , which is a very big number, we can use 20712 since 84923 is anyway dividing 513.537.  
+And then we can use gcd way of calculating factors  
 
+## Quadratic Sieve  
+
+In Dixon method, we have to keep looking for a's for which b's exponent can be perfect square  
 
