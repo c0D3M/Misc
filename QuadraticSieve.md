@@ -40,6 +40,17 @@ So GCD(a+b, N) = 659 and other factor would be 90283/ 659 = 137<br />
 659 * 137 = 90283<br />
 As you see we did found **b**  but we have to iterate very long.<br />
 
+## Observation
+Is 6 a perfect square ? No    
+Is 54 a perfect square? No  
+As per fundamental theorem of artithemic  
+6 = 2<sup>1</sup> * 3<sup>1</sup>  
+54 = 2<sup>1</sup> * 3<sup>3</sup>  
+6 * 54 is perfect square? Yes i.e. 18<sup>2</sup> = 6 * 54  
+A key observation is exponents of 6 and 54 when multipled together become perfect sqaure i.e. multiple of 2  
+6 * 54 = 2<sup>2</sup> * 3 <sup>4</sup>  
+We will use this aspect in next section  
+
 ## Dixon Factorization method
 
 Let's try to factorize 
@@ -68,7 +79,7 @@ And then we can use gcd way of calculating factors
 In Dixon method, we have to keep looking for a's for which b's exponent can be perfect square  
 Next we try to  create  these  **a**  number, but before that  
 
-### Quadratic reside
+### Quadratic residue
 q is said to be quadratic residue , if it congurent to perfect square modulo n  
 *x<sup>2</sup>* ≡  *q*  mod *p*  
 
@@ -125,12 +136,8 @@ Apply Euler criteria
  Apply Euler criteria
  
  Lets put p =17 and see if q=15 is quadratic residue ?  
- 15<sup> (17-1)/2</sup>  = 15<sup>8</sup> mod 17 = 16 mod 17 = 1 , hence 15 is quadratic residue  
+ 15<sup> (17-1)/2</sup>  = 15<sup>8</sup> mod 17 = 1 , hence 15 is quadratic residue  
  
+Back to our original problem, as we have seen in Dixon method, we keep **searching** for multiple a's and select some of them for which b's exponent vector is mod 2. This is still a problem, next we will see how to **create** these a's effectuvely and then solve their exponent vector to get the b.  
 
 
-
-
-
-Back to our original problem
-a<sup>2</sup> ≡
