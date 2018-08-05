@@ -95,5 +95,24 @@ For a = 2 ; 2 <sup> 5-1/2</sup> ≡ 4 mod  5=> ≡ -1 mod 5, then a=2 is quadrat
 For a = 3 ; 3 <sup> 5-1/2</sup> ≡ 4 mod  5=> ≡ -1 mod 5, then a=3 is quadratic **non-residue**.  
 For a = 4 ; 4 <sup> 5-1/2</sup> ≡ 16 mod 5=> ≡  1 mod 5, then a=4 is quadratic **residue**.  
 
+We can answer following question on quadratic residue
+#### 1. Find the quadratic resdue for a given number *p* , this is easy just interate 1 to p and calculate  
+Example, p = 17  
+1<sup>2</sup> mod 17 = 1  
+2<sup>2</sup> mod 17 = 4  
+3<sup>2</sup> mod 17 = 9  
+4<sup>2</sup> mod 17 = 16  
+5<sup>2</sup> mod 17 = 8  
+6<sup>2</sup> mod 17 = 2  
+7<sup>2</sup> mod 17 = 15  
+8<sup>2</sup> mod 17 = 13  
+9<sup>2</sup> mod 17 = 13  
+10<sup>2</sup> mod 17 = 15   
+
+No need to calculate from 9 onward, why because 9<sup>2</sup> ≡ (-8)<sup>2</sup> mod 17 , so whatever value 8 takes return same is true for 9 also.  
+So quadratic residue of 17 are {1,2,4,8,9,13,15,16}  
+
+TODO: Law of Quadratic Reciprocity.  
+
 Back to our original problem
 a<sup>2</sup> ≡
