@@ -110,9 +110,27 @@ Example, p = 17
 10<sup>2</sup> mod 17 = 15   
 
 No need to calculate from 9 onward, why because 9<sup>2</sup> ≡ (-8)<sup>2</sup> mod 17 , so whatever value 8 takes return same is true for 9 also.  
-So quadratic residue of 17 are {1,2,4,8,9,13,15,16}  
+So quadratic residue of 17 are **{1,2,4,8,9,13,15,16}**  
 
 TODO: Law of Quadratic Reciprocity.  
+#### 2. For a given *a* if this is quadratic residue of prime *p*  
+
+a = 3, p = 17  
+Apply Euler criteria
+3 <sup> (17-1)/2 </sup>  = 16 mod 17 = -1 mod 17 , and hence 3 is **not a quadratic residue**  
+
+#### 3. Finding primes for a given quadratic residue
+
+ q = 15 p=? 
+ Apply Euler criteria
+ 
+ Lets put p =17 and see if q=15 is quadratic residue ?  
+ 15<sup> (17-1)/2</sup>  = 15<sup>8</sup> mod 17 = 16 mod 17 = 1 , hence 15 is quadratic residue  
+ 
+
+
+
+
 
 Back to our original problem
 a<sup>2</sup> ≡
