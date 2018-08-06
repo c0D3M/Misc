@@ -144,3 +144,6 @@ Back to our original problem, as we have seen in Dixon method, we keep **searchi
 ## Reference
 1. https://blogs.msdn.microsoft.com/devdev/2006/06/19/factoring-large-numbers-with-quadratic-sieve/
 2. https://www.youtube.com/watch?v=Y3N0vZoPCWE
+3. http://thales.doa.fmph.uniba.sk/macaj/skola/teoriapoli/primes.pdf
+4. https://www.ams.org/notices/199612/pomerance.pdf
+
