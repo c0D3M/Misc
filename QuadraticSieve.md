@@ -8,7 +8,7 @@ Example a= 37 , b = 57 n =10
 Alternatively, *a*-*b* is dibisible by *n*
 
 ## Congurence of Square Method
-If this method, we will try to find two numbers **b** and **b**  , whose difference of square is N i.e. <br />
+If this method, we will try to find two numbers **a** and **b**  , whose difference of square is N i.e. <br />
 **a<sup>2</sup>** - **b<sup>2</sup>** = **N**
 
 This idea works because<br />
@@ -141,3 +141,6 @@ Apply Euler criteria
 Back to our original problem, as we have seen in Dixon method, we keep **searching** for multiple a's and select some of them for which b's exponent vector is mod 2. This is still a problem, next we will see how to **create** these a's effectuvely and then solve their exponent vector to get the b.  
 
 
+## Reference
+1. https://blogs.msdn.microsoft.com/devdev/2006/06/19/factoring-large-numbers-with-quadratic-sieve/
+2. https://www.youtube.com/watch?v=Y3N0vZoPCWE
