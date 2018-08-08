@@ -130,6 +130,21 @@ a = 3, p = 17
 Apply Euler criteria
 3 <sup> (17-1)/2 </sup>  = 16 mod 17 = -1 mod 17 , and hence 3 is **not a quadratic residue**  
 
+Example 3 <sup> 8 </sup> mod 17 , trick is to 3<sup>8</sup>  = (3<sup>2</sup>)<sup>4</sup>
+```
+unsigned long long exponent ( int a, int p)
+{
+    if(p==0)
+        return 1;
+     if(p==1)
+        return a;
+     if(p&1)
+         return a * exponent(a*a, (p-1)/2) ;
+     else
+         return exponent(a*a, p/2) ;
+}
+```
+
 #### 3. Finding primes for a given quadratic residue
 
  q = 15 p=? 
