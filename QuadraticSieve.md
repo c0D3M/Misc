@@ -155,6 +155,12 @@ unsigned long long exponent ( int a, int p)
  
 Back to our original problem, as we have seen in Dixon method, we keep **searching** for multiple a's and select some of them for which b's exponent vector is mod 2. This is still a problem, next we will see how to **create** these a's effectuvely and then solve their exponent vector to get the b.  
 
+### Shank Tonelli's Theorem
+So we know **N** and we also **p** from Euler Criteria  
+a<sup>2</sup> ≡ N mod p  
+To solve this type of equation, we use Shank Tonelli algorithm p > 2, and it will have 2 solution  
+
+
 
 ## Reference
 1. https://blogs.msdn.microsoft.com/devdev/2006/06/19/factoring-large-numbers-with-quadratic-sieve/
