@@ -81,10 +81,12 @@ Next we try to  create  these  **a**  number, but before that
 
 ### Quadratic residue
 q is said to be quadratic residue , if it congurent to perfect square modulo n  
-*x<sup>2</sup>* ≡  *q*  mod *p*  
+*x<sup>2</sup>* ≡  *q*  mod *p*  *0 < x < p*
 
-For p =2, every integer is quadratic residue, because either it will divisible or will have remainder 1  
-For exampple 7<sup>2</sup> ≡ 1 mod 2  
+For p =2, every integer is quadratic residue,  
+for example q = 75, will fit the euqation  
+1 <sup>2</sup> ≡ 75 mod 2  
+Any integer when divisble by 2 can either result 0 or 1.  
 
 For p =5 , quadratic residues are **1**, 2, 3, **4** (residue in **bold**)  
 
@@ -158,7 +160,15 @@ Back to our original problem, as we have seen in Dixon method, we keep **searchi
 ### Shank Tonelli's Theorem
 So we know **N** and we also **p** from Euler Criteria  
 a<sup>2</sup> ≡ N mod p  
-To solve this type of equation, we use Shank Tonelli algorithm p > 2, and it will have 2 solution  
+
+To solve this type of equation, we use Shank Tonelli algorithm p > 2.    
+Like a<sup>2</sup>  = N has two solution, here also we have two solution but different.  
+
+a<sup>2</sup> -N ≡ 0 mod p  
+what will be (a+p)<sup>2</sup> -N = a<sup>2</sup> -N + p(2a+p)  
+Since a<sup>2</sup>-N is already divisible by p and the second part will also be divisible by p  
+So once you found solution of Shank Tonelli, we have to keep looking at **2p, 3p** for B-Smooth number  .
+Here the algorithm gets its name **Sieve**, since we are skipping many number and only going to those where we know that it would be divsible by p  
 
 
 
