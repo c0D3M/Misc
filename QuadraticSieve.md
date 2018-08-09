@@ -5,28 +5,28 @@ We will discuss various ways to factorize a given number **N**.
 ![](https://wikimedia.org/api/rest_v1/media/math/render/svg/fbb66ad4d03232b185b3dd6a6ee293943f21f786)  
 Example a= 37 , b = 57 n =10  
 ![](https://wikimedia.org/api/rest_v1/media/math/render/svg/2597d68becb3448bb118defd783d20f82d182aee)  
-Alternatively, *a*-*b* is dibisible by *n*
+Alternatively, *a*-*b* is divisible by *n*
 
 ## Congurence of Square Method
-If this method, we will try to find two numbers **a** and **b**  , whose difference of square is N i.e. <br />
+If this method, we will try to find two numbers **a** and **b**  , whose difference of square is N i.e.  
 **a<sup>2</sup>** - **b<sup>2</sup>** = **N**
 
-This idea works because<br />
-a<sup>2</sup> - b<sup>2</sup> = N<br />
-(a+b)(a-b) = N<br />
+This idea works because  
+a<sup>2</sup> - b<sup>2</sup> = N  
+(a+b)(a-b) = N  
 
-Thus a+b and a-b divides N and if we take GCD(a+b, N) and the other factor can be found by dividing by N.<br />
-Lets see this by an example **N = 8051** <br />
-start with a whose square is closest to 8051 , we can easily se it is 90 as,  90<sup>2</sup> = 8100 , which is close to N <br />
-by tial and error , b = 7 as 8100 - 49 = 8051<br />
-Hence **a= 90 b = 7** as 90<sup>2</sup> - 7<sup>2</sup> = 8051<br />
-GCD(a+b, N) = GCD (97, 8051) = 97 , other factor would be 8051 / 97 = 83<br />
+Thus a+b and a-b divides N and if we take GCD(a+b, N) and the other factor can be found by dividing by N.  
+Lets see this by an example **N = 8051**   
+start with a whose square is closest to 8051 , we can easily se it is 90 as,  90<sup>2</sup> = 8100 , which is close to N   
+by tial and error , b = 7 as 8100 - 49 = 8051  
+Hence **a= 90 b = 7** as 90<sup>2</sup> - 7<sup>2</sup> = 8051  
+GCD(a+b, N) = GCD (97, 8051) = 97 , other factor would be 8051 / 97 = 83  
 
-So the factors of 8051 are 97 and 83.<br />
+So the factors of 8051 are 97 and 83.  
 
-Although this is a great method to find factor, it can be very slow in certain case,<br />
-For example  N = 90283<br />
-Starting a= 301 , we keep looking whether a<sup>2</sup> - N is a perfect square or not and our search ends at a = 398 !<br />
+Although this is a great method to find factor, it can be very slow in certain case,  
+For example  N = 90283  
+Starting a= 301 , we keep looking whether a<sup>2</sup> - N is a perfect square or not and our search ends at a = 398 !  
 
 a | a<sup>2</sup> - N| b
 ------|-------|--------
@@ -35,10 +35,10 @@ a | a<sup>2</sup> - N| b
 303| 1526| no
 398| 68121| Perfect Square(261)
 
-a= 398 b = 261 and a<sup>2</sup> -b<sup>2</sup> = N <br />
-So GCD(a+b, N) = 659 and other factor would be 90283/ 659 = 137<br />
-659 * 137 = 90283<br />
-As you see we did found **b**  but we have to iterate very long.<br />
+a= 398 b = 261 and a<sup>2</sup> -b<sup>2</sup> = N   
+So GCD(a+b, N) = 659 and other factor would be 90283/ 659 = 137  
+659 * 137 = 90283  
+As you see we did found **b**  but we have to iterate very long.  
 
 ## Observation
 Is 6 a perfect square ? No    
@@ -60,16 +60,16 @@ Our search ends at a = 505 !  b = 16 i.e. 505<sup>2</sup> - 85923 = 16<sup>2</su
 GCD(505-16, 85923) = 163, other factor would be 521  
 
 The main idea is instead of looking for **b** which is a perfect square we tried to find multiple **bi**  which has factor to a choose base **B**.  
-Next combine those **bi** whose **sum of exponent is even** and that will give us our **b**.<br />
+Next combine those **bi** whose **sum of exponent is even** and that will give us our **b**.  
 Let's explain all this with example.  
 
 N = 84923  and we choose factor base of B = {2, 3, 5, 7} , Factor base means while b such that it can be expressed in this factor base.
 
-lets choose a = 513     b<sup>2</sup> = a<sup>2</sup> mod N = (513) mod 84923 = 8400 = 2<sup>4</sup>  . 3 . 5<sup>2</sup> .7
+lets choose a = 513     b<sup>2</sup> = a<sup>2</sup> mod N ≡ (513) mod 84923 = 8400 = 2<sup>4</sup>  . 3 . 5<sup>2</sup> .7
 537 <sup>2</sup> mod 84923 = 33600 =  2<sup>6</sup>  . 3 . 5<sup>2</sup> .7
 
 if we select these **two** a , exponent of **b is even** i.e. 
-(513 . 537 )<sup>2</sup> mod 84923 = (2<sup>5</sup>  . 3 . 5<sup>2</sup> .7)<sup>2</sup>
+(513 . 537 )<sup>2</sup> mod 84923 ≡ (2<sup>5</sup>  . 3 . 5<sup>2</sup> .7)<sup>2</sup>
 
 One simplication can we done i.e. 513.537 can we written as 84923 * 3 + 20712, so instead of using 513.537 , which is a very big number, we can use 20712 since 84923 is anyway dividing 513.537.  
 And then we can use gcd way of calculating factors  
@@ -163,6 +163,11 @@ a<sup>2</sup> ≡ N mod p
 
 To solve this type of equation, we use Shank Tonelli algorithm p > 2.    
 Like a<sup>2</sup>  = N has two solution, here also we have two solution but different.  
+
+Example from wikipedia  
+ r<sup>2</sup> ≡ 5 (mod 41).
+ r = 28 , other solution would be p -r i.e. 13  
+ 28<sup>2</sup> = 784 -5 = 779 which is didivble by 41  
 
 a<sup>2</sup> -N ≡ 0 mod p  
 what will be (a+p)<sup>2</sup> -N = a<sup>2</sup> -N + p(2a+p)  
