@@ -17,4 +17,16 @@ Approximate Algorithm (Vertex Cover, Metric TSP)| OK       |NO| OK
 Exact Algorithm (Dynamic TSP)| NO       |OK| OK
 
 Metric-TSP: Satisfy Triangle Inequality i.e. AB <= AC+BC
+Construct a Hamiltonian Cycle, and convert to Minimum Spanning Tree, delete the duplicate node using triangle eniquality.  
+                   
+                   1
+                  /
+                 2
+                / \ 
+               3   4
+               
+               1 -> 2 -> 3 -> 2 -> 4
+               
+               3 -> 2 ->4 can be replaced with 3->4 , since from triangle ineuqlaity we know 3-4 <= 3->2 + 2->4.  
+
 Dynamic-TSP: Held-Karp Algorithm using Dynamic Programming.
