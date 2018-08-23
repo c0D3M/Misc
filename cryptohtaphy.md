@@ -1,3 +1,9 @@
+## One Time Pad
+Not a good idea to encrypt two different message using same secrect key.  
+C1 = m1 xor K  
+C2 = m2 xor K  
+If some intercept C1, C2.  
+C1 xor C2 =  m1 xor m2 and because of redundancy in english can figure out the plain text.  
 ## Discrete Logarithm Problem
 Fix a group G and a generator element *g* from that group.  
 Any element *h* from **subgroup of G**  
