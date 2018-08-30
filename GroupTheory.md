@@ -1,36 +1,44 @@
 ## Set
-Collection of weel defined disctinct object.<br />
-Example:<br />
-_**N**_ set of **Natural numbers** = **{1, 2, 3, 4, ..}** , Some places 0 is also included, that set is Whole Number.<br />
-_**Z**_ set of **Integers** = **{.....,-2, -1, 0, 1, 2, 3...}**<br />
-_**Q**_ set of **Rational Nmbers** , which can be expressed in p/q form, while Irrational number are those which cannot like **√2**<br />
-_**R**_ set of **Real Numbers** includes integers, rational and irational numbers.
+Collection of well defined disctinct object.  
+Example:  
+_**N**_ set of **Natural numbers** = **{1, 2, 3, 4, ..}** , Some places 0 is also included, that set is Whole Number.  
+_**Z**_ set of **Integers** = **{.....,-2, -1, 0, 1, 2, 3...}**  
+_**Q**_ set of **Rational Nmbers** , which can be expressed in p/q form, while Irrational number are those which cannot like **√2**
+_**R**_ set of **Real Numbers** includes integers, rational and irational numbers.  
 
 ## Group
 
 ### Binary opreation
-Any operation when performed on member of set to get another member is binary operation.<br />
-For example + is a binary operation for set of Integer , if we take 2 and 3 and apply + operation we get 5 , which is also a member of I.<br />
+Any operation when performed on member of set to get another member is binary operation.  
+For example + is a binary operation for set of Integer , if we take 2 and 3 and apply + operation we get 5 , which is also a member of I.  
 
 ### Algebraic structure : 
-A set which obey one or more axioms (Closure, Associative, etc). _Ring_, __Group_, _Field_ etc.<br />
+A set which obey one or more axioms (Closure, Associative, etc). _Ring_, __Group_, _Field_ etc.  
 ### Group: 
-Any set which satisfies axioms 1-4 on some binary operation is called group.<br />
+Any set which satisfies axioms 1-4 on some binary operation is called group.  
 
-1. Closure property: Take any two elements from set and perform binary operation, result should also be in same set , like + on Integer.<br />
+1. Closure property: Take any two elements from set and perform binary operation, result should also be in same set , like + on Integer.  
 2. Associative property: a+b = b+c , this is true for (I,+)
 3. Identitiy Element: there exists an element in _**e**_ such that a + e = a , in case of I this will be 0 and 0 exists in I.
-4. Inverse , there exists an element in set suhc that a + a<sup>-1</sup> = e (Identiy element) , in set I if we take 2 , its invers would be -2 since
+4. Inverse , there exists an element in set such that a + a<sup>-1</sup> = e (Identiy element) , in set I if we take 2 , its invers would be -2 since
 2 + (-2) = 0
 
 Similary we can show that set of real number R is group under binary opreation *. _**(R, \*)**_
 ### Abelian Group:
-If beside above axioms , group satisfies commutative law also , it is called Abelion Group.<br />
-a + (b+c) = (a+b) + c <br />
+If beside above axioms , group satisfies commutative law also , it is called Abelion Group.  
+a + (b+c) = (a+b) + c   
 Set of Integer satisfies this propery under + , so **(I, +)** is an **Abelion Group**
 ### Cyclic Group
-Using atleast one elemnt of group we can geerate all other element of group.<br />
-For example Set of integer modulo 5 = **{0, 1, 2, 3, 4}** is a cyclic group  and its generator are any element relative prime to 5 i.e. 1,2,3,4.<br />
+Using atleast one element of group we can geerate all other element of group.  
+For example Set of integer modulo 5 under binary operation (Z<sub>5</sub>, +) = **{0, 1, 2, 3, 4}** is a cyclic group  and its generator are any element relative prime to 5 i.e. 1,2,3,4.  
+2 mod 5 = 2  
+2+2 mod 5 =4  
+2+2+2 mod 5 = 1  
+2+2+2+2 mod 5 = 3  
+2+2+2+2+2 mod 5 = 0  
+as can be seen all elements of groups can be obtained by using **generator 2**.  
+
+
 
 ### Order of a group
 Cardinality of a group i.e. number of elements.<br />
@@ -121,7 +129,7 @@ This ring is also **commutative ring** since a.b = b .a<br />
 Example of non-commutative ring can be ring of square matrices.<br />
 
 ### Ideal
-an idela is a subset of ring such that following property are satisfied
+an ideal is a subset of ring such that following property are satisfied
 a + b belongs to I , where a and b belongs to I
 r . x = I , r belongs to R and x belongs to I
 Example: subset of even integer is a ideal, because above property holds true.
