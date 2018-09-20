@@ -265,7 +265,8 @@ A ciphertext is changed such that when decrypted it produced a different plainte
 See example of malleable on wiki https://en.wikipedia.org/wiki/Malleability_(cryptography)  
 
 ### Semantic Security
-Knowledge of cipher(and length) for a given plain text does not reveal any partial information on the message that can be physically extracted in Probablistic-Polynomial Time Algorithm (PPTA). IND-CPA is conceptually similar to Semantic Security.
+Knowledge of cipher(and length) for a given plain text does not reveal any partial information on the message that can be physically extracted in Probablistic-Polynomial Time Algorithm (PPTA). IND-CPA is conceptually similar to Semantic Security.  
+An adversary cannot distiguish cipher text belong to which plain text in reasonable time.  
 
 ### IND
 IND stands for indistinguishability where an attacker given a cipher text and two plain text cannot identfy which plain text is encrypted.
