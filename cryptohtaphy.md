@@ -377,3 +377,6 @@ https://www.whatsapp.com/security/WhatsApp-Security-Whitepaper.pdf
 https://freedom-to-tinker.com/2011/03/30/building-better-ca-infrastructure/  
 [List of All Attacks] https://tools.ietf.org/html/rfc7457  
 Recommendation https://tools.ietf.org/html/rfc7525  
+RSA Padding Attacks: http://secgroup.dais.unive.it/wp-content/uploads/2012/11/Practical-Padding-Oracle-Attacks-on-RSA.html  
+ROBOT: https://github.com/Bono-iPad/Bono-iPad.github.io/blob/master/ROBOT_CTF_writeup.md  
+https://eprint.iacr.org/2017/1189.pdf  
