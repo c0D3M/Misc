@@ -16,7 +16,7 @@ Key	Exchange	algorithms:
 – ECDSA	/	EdDSA  
 These algorithm are not defined in ciphers but in extension field **supported_groups** in Client Hello request.  
 Similary for verifying Sinature Hash Algorithm is defined in another extension.  
-
+![Client Hello](https://github.com/c0D3M/Misc-Writeups/blob/master/tls_1_3.png)
 
 
 (https://crypto.stackexchange.com/questions/62917/what-is-different-below-two-ciphersuites)  
