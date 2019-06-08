@@ -28,6 +28,7 @@ Cipher List: (https://tools.ietf.org/html/rfc8446#appendix-B.4)
 
 0-RTT:  
 1-RTT: 
-
+*TLS 1.3 Extensions*  
+https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xml  
 *TLS 1.2 Cipher List*
 https://tools.ietf.org/html/rfc5289#section-3.2  
