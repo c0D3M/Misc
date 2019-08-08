@@ -30,4 +30,7 @@ Construct a Hamiltonian Cycle, and convert to Minimum Spanning Tree, delete the 
                
                3 -> 2 ->4 can be replaced with 3->4 , since from triangle ineuqlaity we know 3-4 <= 3->2 + 2->4.  
 
-Dynamic-TSP: Held-Karp Algorithm using Dynamic Programming.
+Dynamic-TSP: Held-Karp Algorithm using Dynamic Programming.  
+
+Independent Set:  Set of Vertex such that their is no edge between any of them.  
+Vertex Cover:  Set of Vertex such that each edge is covered by the set.  
