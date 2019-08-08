@@ -2,7 +2,8 @@
 
 **NP Hard**: A problem is said to be NP-Hard if it belongs to NP and all problems in NP can be reduced to it in polynomial time.
 
-**NP Complete**: Belongs to NP as well as NP-Hard.
+**NP Complete**: Belongs to NP as well as NP-Hard.  
+Given a problem A, **if any other problem in NP set can be reduced to it** , then A is also NP.   
 All NP-Complete problems are NP-Hard but all NP_Hard not equals to NP-Complete.
 To prove a new problem is NP-Complete, first prove it whether it NP and then reduce any of the exisiting NP-Complete problem to it.
 https://en.wikipedia.org/wiki/List_of_NP-complete_problems
